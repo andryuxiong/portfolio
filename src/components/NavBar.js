@@ -133,7 +133,7 @@ import {
             {/* Nav links (desktop) */}
             <HStack spacing={4} alignItems="center" display={{ base: 'none', md: 'flex' }}>
               <MotionLink
-                href="https://drive.google.com/file/d/1CRsbjrbUslQJLVT31t2HYRHCV2gm1CRZ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1OWPCCZMdQZbiN86bnK5Qmf59_QrnK7Ra/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 px={4}
@@ -192,7 +192,7 @@ import {
           {isOpen && (
             <Box pb={4} display={{ md: 'none' }}>
               <Stack as="nav" spacing={4}>
-                <NavLink to="https://drive.google.com/file/d/1CRsbjrbUslQJLVT31t2HYRHCV2gm1CRZ/view?usp=sharing">
+                <NavLink to="https://drive.google.com/file/d/1OWPCCZMdQZbiN86bnK5Qmf59_QrnK7Ra/view?usp=drive_link">
                   <HStack spacing={2}>
                     <FiFileText size={18} />
                     <span>Resume</span>
