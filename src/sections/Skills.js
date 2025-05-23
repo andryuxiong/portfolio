@@ -1,6 +1,6 @@
 import { Box, Heading, SimpleGrid, VStack, Text, HStack, Center } from '@chakra-ui/react';
 import { FaPython, FaJava, FaReact, FaGitAlt, FaDatabase, FaHtml5 } from 'react-icons/fa';
-import { SiCplusplus, SiMysql, SiSpring, SiNumpy, SiNextdotjs, SiChakraui } from 'react-icons/si';
+import { SiCplusplus, SiMysql, SiSpring, SiNextdotjs, SiChakraui } from 'react-icons/si';
 
 const skills = [
   {
@@ -23,7 +23,6 @@ const skills = [
       { name: 'Spring Boot', icon: SiSpring, level: 'Intermediate' },
       { name: 'MySQL', icon: SiMysql, level: 'Basic' },
       { name: 'SQL', icon: FaDatabase, level: 'Basic' },
-      { name: 'NumPy', icon: SiNumpy, level: 'Basic' },
     ],
   },
 ];
