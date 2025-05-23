@@ -26,15 +26,6 @@ const skills = [
       { name: 'NumPy', icon: SiNumpy, level: 'Basic' },
     ],
   },
-  {
-    group: 'AI & Cloud',
-    items: [
-      { name: 'OpenAI GPT-4', icon: FaPython, level: 'Intermediate' },
-      { name: 'Vercel', icon: SiNextdotjs, level: 'Intermediate' },
-      { name: 'Railway', icon: FaDatabase, level: 'Basic' },
-      { name: 'Web Speech API', icon: FaReact, level: 'Intermediate' },
-    ],
-  },
 ];
 
 const Skills = () => (
