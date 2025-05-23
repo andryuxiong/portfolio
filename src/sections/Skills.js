@@ -6,12 +6,12 @@ const skills = [
   {
     group: 'Frontend Development',
     items: [
-      { name: 'React', icon: FaReact, level: 'Basic' },
+      { name: 'React', icon: FaReact, level: 'Intermediate' },
       { name: 'Next.js', icon: SiNextdotjs, level: 'Basic' },
-      { name: 'HTML/CSS', icon: FaHtml5, level: 'Basic' },
-      { name: 'JavaScript', icon: FaReact, level: 'Basic' },
-      { name: 'Git', icon: FaGitAlt, level: 'Basic' },
-      { name: 'Chakra UI', icon: SiChakraui, level: 'Basic' },
+      { name: 'HTML/CSS', icon: FaHtml5, level: 'Intermediate' },
+      { name: 'JavaScript', icon: FaReact, level: 'Intermediate' },
+      { name: 'Git', icon: FaGitAlt, level: 'Intermediate' },
+      { name: 'Chakra UI', icon: SiChakraui, level: 'Intermediate' },
     ],
   },
   {
@@ -20,11 +20,20 @@ const skills = [
       { name: 'Java', icon: FaJava, level: 'Intermediate' },
       { name: 'Python', icon: FaPython, level: 'Intermediate' },
       { name: 'C++', icon: SiCplusplus, level: 'Basic' },
-      { name: 'Spring Boot', icon: SiSpring, level: 'Basic' },
+      { name: 'Spring Boot', icon: SiSpring, level: 'Intermediate' },
       { name: 'MySQL', icon: SiMysql, level: 'Basic' },
       { name: 'SQL', icon: FaDatabase, level: 'Basic' },
       { name: 'NumPy', icon: SiNumpy, level: 'Basic' },
-    ].slice(0, 6),
+    ],
+  },
+  {
+    group: 'AI & Cloud',
+    items: [
+      { name: 'OpenAI GPT-4', icon: FaPython, level: 'Intermediate' },
+      { name: 'Vercel', icon: SiNextdotjs, level: 'Intermediate' },
+      { name: 'Railway', icon: FaDatabase, level: 'Basic' },
+      { name: 'Web Speech API', icon: FaReact, level: 'Intermediate' },
+    ],
   },
 ];
 

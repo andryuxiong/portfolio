@@ -11,6 +11,16 @@ const placeholderImg = 'https://via.placeholder.com/400x180?text=Project+Image';
 
 const projects = [
   {
+    title: 'AI Medicare Assistant',
+    description:
+      'A full-stack virtual health assistant powered by OpenAI GPT-4, featuring real-time symptom analysis and medical recommendations. Built with React.js, Java Spring Boot, and Web Speech API. Includes voice input, dark mode, and responsive design. Successfully deployed on Vercel and Railway.',
+    github: 'https://github.com/andryuxiong/medicare-ai',
+    demo: 'https://medicare-ai-three.vercel.app/',
+    image: 'https://raw.githubusercontent.com/andryuxiong/medicare-ai/main/frontend/medicare-ui/public/medicare-preview.png',
+    techStack: ['React.js', 'Java', 'Spring Boot', 'OpenAI GPT-4', 'Web Speech API', 'Chakra UI'],
+    date: '2024'
+  },
+  {
     title: '2D Platformer Game',
     description:
       'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
@@ -19,16 +29,6 @@ const projects = [
     image: placeholderImg,
     techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
     date: '2023'
-  },
-  {
-    title: 'AI Medicare',
-    description:
-      'A full-stack virtual health assistant using React.js, Java, Spring Boot, and Web Speech API. Enables users to describe symptoms via voice or text and receive actionable, context-aware medical recommendations. Plans to integrate advanced AI for symptom analysis.',
-    github: 'https://github.com/andryuxiong/medicare-ai',
-    demo: 'https://medicare-ai-three.vercel.app/',
-    image: placeholderImg,
-    techStack: ['React.js', 'Java', 'Spring Boot', 'Web Speech API'],
-    date: '2024'
   },
 ];
 
