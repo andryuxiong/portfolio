@@ -50,21 +50,21 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
           transform="rotate(45deg) translate(50%, -50%)"
         />
 
-        <VStack align="start" spacing={3}>
+    <VStack align="start" spacing={3}>
           <Box position="relative" w="100%">
             <MotionImage
-              src={image || placeholderImg}
-              alt={title + ' image'}
-              borderRadius="md"
-              mb={2}
-              w="100%"
-              maxH="180px"
-              objectFit="cover"
+        src={image || placeholderImg}
+        alt={title + ' image'}
+        borderRadius="md"
+        mb={2}
+        w="100%"
+        maxH="180px"
+        objectFit="cover"
               transition="transform 0.3s ease"
               whileHover={{ scale: 1.02 }}
               filter="brightness(0.95)"
               _hover={{ filter: 'brightness(1)' }}
-            />
+      />
             <Badge
               position="absolute"
               top={2}
@@ -125,7 +125,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
 
           <HStack spacing={4} mt={2} w="100%" justify="space-between">
             <HStack spacing={4}>
-              {github && (
+        {github && (
                 <Link 
                   href={github} 
                   isExternal 
@@ -141,9 +141,9 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
                     <FaGithub size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
                   </MotionBox>
                   <Text fontSize="sm" color="ocean.accent" fontWeight="medium">GitHub</Text>
-                </Link>
-              )}
-              {demo && (
+          </Link>
+        )}
+        {demo && (
                 <Link 
                   href={demo} 
                   isExternal 
@@ -159,8 +159,8 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
                     <FaLink size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
                   </MotionBox>
                   <Text fontSize="sm" color="ocean.accent" fontWeight="medium">Demo</Text>
-                </Link>
-              )}
+          </Link>
+        )}
             </HStack>
             <Badge 
               colorScheme="blue" 
@@ -172,11 +172,11 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
               <Icon as={FaStar} />
               Featured
             </Badge>
-          </HStack>
-        </VStack>
-      </Box>
+      </HStack>
+    </VStack>
+  </Box>
     </MotionBox>
-  );
+);
 };
 
 export default ProjectCard; 

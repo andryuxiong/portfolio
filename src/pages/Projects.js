@@ -42,14 +42,14 @@ const Projects = () => {
       <Container maxW="1200px">
         <VStack spacing={8} w="100%">
           <MotionHeading
-            as="h1"
-            size="2xl"
-            fontWeight="bold"
+        as="h1"
+        size="2xl"
+        fontWeight="bold"
             color={accentColor}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            textAlign="center"
+        textAlign="center"
             position="relative"
             _after={{
               content: '""',
@@ -62,8 +62,8 @@ const Projects = () => {
               bg: accentColor,
               borderRadius: 'full',
             }}
-          >
-            Technical Projects
+      >
+        Technical Projects
           </MotionHeading>
           
           <MotionText
@@ -101,12 +101,12 @@ const Projects = () => {
               >
                 <ProjectCard {...project} />
               </MotionBox>
-            ))}
-          </SimpleGrid>
+        ))}
+      </SimpleGrid>
         </VStack>
       </Container>
-    </Center>
-  );
+  </Center>
+);
 };
 
 export default Projects;
