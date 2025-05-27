@@ -2,6 +2,8 @@
 import { Box, Heading, SimpleGrid, Center, Text, VStack, useColorModeValue, Container, Divider } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
+import medicareLogo from '../assets/projects/medicare-logo.png';
+import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
 
 const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
@@ -13,12 +15,22 @@ const projects = [
   {
     title: 'AI Medicare Assistant',
     description:
-      'A full-stack virtual health assistant powered by OpenAI GPT-4, featuring real-time symptom analysis and medical recommendations. Built with React.js, Java Spring Boot, and Web Speech API. Includes voice input, dark mode, and responsive design. Successfully deployed on Vercel and Railway.',
+      'A full-stack virtual health assistant, featuring real-time symptom analysis and medical recommendations. Built with React.js, Java Spring Boot, and Web Speech API. Includes voice input, dark mode, and responsive design. Successfully deployed on Vercel and Railway.',
     github: 'https://github.com/andryuxiong/medicare-ai',
     demo: 'https://medicare-ai-three.vercel.app/',
-    image: 'https://raw.githubusercontent.com/andryuxiong/medicare-ai/main/frontend/medicare-ui/public/medicare-preview.png',
-    techStack: ['React.js', 'Java', 'Spring Boot', 'OpenAI GPT-4', 'Web Speech API', 'Chakra UI'],
+    image: medicareLogo,
+    techStack: ['React.js', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
     date: '2024'
+  },
+  {
+    title: 'Personal Portfolio Website',
+    description:
+      'A modern, responsive portfolio website showcasing my projects, experience, and skills. Features a clean, interactive design with smooth animations, dark/light mode, and a mobile-first approach. Built with React and Chakra UI, demonstrating frontend development skills and attention to user experience.',
+    github: 'https://github.com/andryuxiong/my-portfolio',
+    demo: '', // the demo is this website
+    image: portfolioScreenshot,
+    techStack: ['React.js', 'Chakra UI', 'Framer Motion', 'JavaScript'],
+    date: '2025'
   },
   {
     title: '2D Platformer Game',
@@ -27,7 +39,7 @@ const projects = [
     github: '', // Placeholder for now
     demo: '', // Placeholder for now
     image: placeholderImg,
-    techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
+    techStack: ['Java', 'Swing', 'AWT'],
     date: '2023'
   },
 ];

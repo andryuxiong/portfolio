@@ -11,18 +11,54 @@ import {
   useColorModeValue,
   Icon,
   Flex,
+  SimpleGrid,
 } from '@chakra-ui/react';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import personalPhoto from '../components/personalphoto.PNG';
-import AboutMe from '../sections/AboutMe';
+import medicareLogo from '../assets/projects/medicare-logo.png';
+import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
 import Experience from '../sections/Experience';
+import ProjectCard from '../components/ProjectCard';
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
+
+const projects = [
+  {
+    title: 'AI Medicare Assistant',
+    description:
+      'An AI-powered healthcare assistant that helps users understand their symptoms and navigate Medicare coverage. Features include real-time symptom analysis, personalized medical recommendations, and voice interaction capabilities. Built with a modern tech stack including React.js and Java Spring Boot, the application provides an intuitive interface for users to access healthcare information and guidance.',
+    github: 'https://github.com/andryuxiong/medicare-ai',
+    demo: 'https://medicare-ai-three.vercel.app/',
+    image: medicareLogo,
+    techStack: ['React.js', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
+    date: '2024'
+  },
+  {
+    title: 'Personal Portfolio Website',
+    description:
+      'A modern, responsive portfolio website showcasing my projects, experience, and skills. Features a clean, interactive design with smooth animations, dark/light mode, and a mobile-first approach. Built with React and Chakra UI, demonstrating frontend development skills and attention to user experience.',
+    github: 'https://github.com/andryuxiong/my-portfolio',
+    demo: '', // the website itself lol
+    image: portfolioScreenshot,
+    techStack: ['React.js', 'Chakra UI', 'Framer Motion', 'JavaScript'],
+    date: '2025'
+  },
+  {
+    title: '2D Platformer Game',
+    description:
+      'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
+    github: '', // Placeholder for now
+    demo: '', // Placeholder for now
+    image: 'https://via.placeholder.com/400x180?text=Project+Image',
+    techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
+    date: '2023'
+  },
+];
 
 function Home() {
   const [useEmojis] = useState(true);
@@ -138,14 +174,18 @@ function Home() {
             <MotionText 
               fontSize={{ base: 'md', md: 'lg' }} 
               fontWeight="medium" 
-              lineHeight="1.5"
+              lineHeight="1.8"
               color={textColor}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               textShadow="0 0 10px rgba(0,0,0,0.1)"
             >
-              Junior at Metropolitan State University majoring in Computer Science, passionate about building innovative solutions and creating engaging digital experiences. Currently exploring full-stack development and software engineering.
+              Hey there! I'm a Junior at Metropolitan State University studying Computer Science. I love turning ideas into reality through code, whether it's building helpful applications or creating fun games.
+              <br /><br />
+              My goal is to become a software engineer who makes a lot of MONEY😂! Just kidding, I enjoy coding and learning new technologies.
+              <br /><br />
+              When I'm not coding, you'll find me exploring new technologies and working on projects... or playing video games!
             </MotionText>
 
             {/* Social Links */}
@@ -210,7 +250,50 @@ function Home() {
           <FaChevronDown color={accentColor} size={24} />
         </MotionBox>
       </Container>
-      <AboutMe />
+
+      {/* Projects Section */}
+      <Container maxW="container.md" px={3} py={10} position="relative" zIndex="3">
+        <VStack spacing={8} w="100%">
+          <MotionHeading
+            as="h2"
+            size="xl"
+            color={accentColor}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            textAlign="center"
+            position="relative"
+            _after={{
+              content: '""',
+              position: 'absolute',
+              bottom: '-10px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              bg: accentColor,
+              borderRadius: 'full',
+            }}
+          >
+            Featured Projects
+          </MotionHeading>
+
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="100%">
+            {projects.map((project, index) => (
+              <MotionBox
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <ProjectCard {...project} />
+              </MotionBox>
+            ))}
+          </SimpleGrid>
+        </VStack>
+      </Container>
+
       <Experience />
     </Box>
   );
