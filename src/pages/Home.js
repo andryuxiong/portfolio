@@ -20,6 +20,7 @@ import personalPhoto from '../components/personalphoto.PNG';
 import medicareLogo from '../assets/projects/medicare-logo.png';
 import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
 import Experience from '../sections/Experience';
+import Skills from '../sections/Skills';
 import ProjectCard from '../components/ProjectCard';
 
 const MotionBox = motion(Box);
@@ -294,6 +295,7 @@ function Home() {
         </VStack>
       </Container>
 
+      <Skills />
       <Experience />
     </Box>
   );

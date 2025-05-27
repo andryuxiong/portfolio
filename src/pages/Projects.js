@@ -88,7 +88,7 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Explore my portfolio of projects showcasing my skills in software development and problem-solving.
+            Explore my portfolio of my technical projects!
           </MotionText>
 
           <Divider 
@@ -111,10 +111,10 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <ProjectCard {...project} />
+                <ProjectCard {...project} location="projects" />
               </MotionBox>
-        ))}
-      </SimpleGrid>
+            ))}
+          </SimpleGrid>
         </VStack>
       </Container>
   </Center>
