@@ -42,7 +42,7 @@ const projects = [
     title: 'Personal Portfolio Website',
     description:
       'A modern, responsive portfolio website showcasing my projects, experience, and skills. Features a clean, interactive design with smooth animations, dark/light mode, and a mobile-first approach. Built with React and Chakra UI, demonstrating frontend development skills and attention to user experience.',
-    github: 'https://github.com/andryuxiong/my-portfolio',
+    github: 'https://github.com/andryuxiong/portfolio',
     demo: '', // the website itself lol
     image: portfolioScreenshot,
     techStack: ['React.js', 'Chakra UI', 'Framer Motion', 'JavaScript'],
