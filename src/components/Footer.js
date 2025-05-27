@@ -41,7 +41,7 @@ const Footer = () => {
       </HStack>
 
       <Text fontSize="sm" color="gray.500">
-          site last updated: 05/22/2025
+          site last updated: 05/26/2025
       </Text>
     </Box>
   );
