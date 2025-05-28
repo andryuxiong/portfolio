@@ -30,6 +30,16 @@ const MotionText = motion(Text);
 
 const projects = [
   {
+    title: 'MarketSeer Stock Predictor',
+    description:
+      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, dark/light mode, and responsive design. Built using Plotly.js for data visualization using Finnhub API for real-time stock data.',
+    github: 'https://github.com/andryuxiong/marketseer',
+    demo: '', // will add link when deployed
+    image: 'https://via.placeholder.com/400x180?text=MarketSeer',
+    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js'],
+    date: '2025'
+  },
+  {
     title: 'AI Medicare Assistant',
     description:
       'An AI-powered healthcare assistant that helps users understand their symptoms and navigate Medicare coverage. Features include real-time symptom analysis, personalized medical recommendations, and voice interaction capabilities. Built with a modern tech stack including React.js and Java Spring Boot, the application provides an intuitive interface for users to access healthcare information and guidance.',
