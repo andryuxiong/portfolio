@@ -9,7 +9,7 @@ const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const ProjectCard = ({ title, description, github, demo, image, techStack = [], date = '2024' }) => {
-  const cardBg = useColorModeValue('rgba(255,255,255,0.7)', 'rgba(26,32,44,0.85)'); // light: glass, dark: dark glass
+  const cardBg = useColorModeValue('rgba(255,255,255,0.3)', 'rgba(26,32,44,0.4)');
   const textColor = useColorModeValue('gray.700', 'gray.100');
   const borderColor = useColorModeValue('ocean.accent', 'ocean.secondary.dark');
   const iconColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
@@ -18,34 +18,32 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
 
   return (
     <MotionBox
-      whileHover={{ y: -8, scale: 1.03, boxShadow: '0 4px 16px rgba(44,83,100,0.10)' }}
-      initial={{ opacity: 0, y: 30 }}
+      whileHover={{ y: -2, scale: 1.01, boxShadow: '0 2px 8px rgba(44,83,100,0.08)' }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       bg={cardBg}
-      style={{ backdropFilter: 'blur(10px)' }}
       borderRadius="xl"
-      borderWidth={1}
-      borderColor={borderColor}
-      boxShadow="0 2px 8px rgba(44,83,100,0.06)"
-      overflow="hidden"
-      position="relative"
+      boxShadow="0 1px 4px rgba(44,83,100,0.04)"
+      style={{ backdropFilter: 'blur(4px)' }}
+      w="100%"
+      minH="220px"
       mb={2}
-      minH="260px"
+      p={4}
     >
-      {/* Gradient accent bar */}
-      <Box h="4px" w="100%" bgGradient={gradientBar} mb={1} />
-      <VStack align="start" spacing={2} p={3} h="100%">
-        <Box position="relative" w="100%">
+      <VStack align="center" spacing={2} w="100%">
+        <Box position="relative" w="100%" display="flex" justifyContent="center">
           <MotionImage
             src={image || placeholderImg}
             alt={title + ' image'}
-            borderRadius="md"
+            borderRadius="xl"
             mb={1}
             w="100%"
+            maxW="320px"
             maxH="120px"
             objectFit="cover"
+            boxShadow="md"
             transition="transform 0.3s ease"
             whileHover={{ scale: 1.03 }}
             filter="brightness(0.97)"
@@ -71,88 +69,73 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
         </Box>
         <Heading
           as="h4"
-          size="sm"
+          size="md"
           color="ocean.accent"
           fontWeight="bold"
-          display="flex"
-          alignItems="center"
-          gap={2}
+          textAlign="center"
+          mt={2}
         >
-          <FaCode size={14} />
           {title}
         </Heading>
-        <Text color={textColor} fontSize="sm" lineHeight="tall">
+        <Text color={textColor} fontSize="sm" lineHeight="tall" textAlign="center">
           {description}
         </Text>
-        {/* Tech Stack Tags - more minimal */}
-        <Flex wrap="wrap" gap={1} mt={1}>
+        <Flex wrap="wrap" gap={1} mt={1} justify="center">
           {techStack.map((tech) => (
             <Tooltip key={tech} label={`Built with ${tech}`} placement="top">
               <Tag
                 size="sm"
                 borderRadius="full"
                 variant="solid"
-                bgGradient={gradientBar}
                 color="white"
                 fontWeight="medium"
                 letterSpacing="wide"
                 transition="all 0.2s"
                 _hover={{ transform: 'scale(1.05)', bg: 'ocean.accent', color: 'white' }}
+                bg="ocean.accent"
               >
                 <TagLabel>{tech}</TagLabel>
               </Tag>
             </Tooltip>
           ))}
         </Flex>
-        <HStack spacing={4} mt={2} w="100%" justify="space-between">
-          <HStack spacing={4}>
-            {github && (
-              <Link 
-                href={github} 
-                isExternal 
-                display="flex" 
-                alignItems="center" 
-                _hover={{ textDecoration: 'none' }}
+        <HStack spacing={3} mt={2} w="100%" justify="center">
+          {github && (
+            <Link 
+              href={github} 
+              isExternal 
+              display="flex" 
+              alignItems="center" 
+              _hover={{ textDecoration: 'none' }}
+            >
+              <MotionBox
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                style={{ display: 'flex', alignItems: 'center' }}
               >
-                <MotionBox
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <FaGithub size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
-                </MotionBox>
-                <Text fontSize="sm" color="ocean.accent" fontWeight="medium">GitHub</Text>
-              </Link>
-            )}
-            {demo && (
-              <Link 
-                href={demo} 
-                isExternal 
-                display="flex" 
-                alignItems="center" 
-                _hover={{ textDecoration: 'none' }}
+                <FaGithub size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
+              </MotionBox>
+              <Text fontSize="sm" color="ocean.accent" fontWeight="medium">GitHub</Text>
+            </Link>
+          )}
+          {demo && (
+            <Link 
+              href={demo} 
+              isExternal 
+              display="flex" 
+              alignItems="center" 
+              _hover={{ textDecoration: 'none' }}
+            >
+              <MotionBox
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                style={{ display: 'flex', alignItems: 'center' }}
               >
-                <MotionBox
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <FaLink size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
-                </MotionBox>
-                <Text fontSize="sm" color="ocean.accent" fontWeight="medium">Demo</Text>
-              </Link>
-            )}
-          </HStack>
-          <Badge 
-            colorScheme="blue" 
-            variant="subtle"
-            display="flex"
-            alignItems="center"
-            gap={1}
-          >
-            <Icon as={FaStar} />
-            Featured
-          </Badge>
+                <FaLink size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
+              </MotionBox>
+              <Text fontSize="sm" color="ocean.accent" fontWeight="medium">Demo</Text>
+            </Link>
+          )}
         </HStack>
       </VStack>
     </MotionBox>

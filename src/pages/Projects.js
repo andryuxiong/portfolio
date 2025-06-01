@@ -123,7 +123,7 @@ const Projects = () => {
           />
 
           {/* Responsive two-column grid layout */}
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={1} w="100%" align="stretch" justifyItems="start" maxW="820px" mx="auto">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={1} w="100%" align="stretch" justifyItems="center" maxW="820px" mx="auto">
             {projects.map((project, index) => (
               <MotionBox
                 key={project.title}
