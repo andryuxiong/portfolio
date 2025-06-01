@@ -19,6 +19,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa'
 import personalPhoto from '../components/personalphoto.PNG';
 import medicareLogo from '../assets/projects/medicare-logo.png';
 import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
+import labubuBotImg from '../assets/projects/labubu-bot.png';
 import Experience from '../sections/Experience';
 import Skills from '../sections/Skills';
 import ProjectCard from '../components/ProjectCard';
@@ -50,6 +51,16 @@ const projects = [
     date: '2024'
   },
   {
+    title: 'Labubu Bot',
+    description:
+      'An automated bot built with Python and Selenium for monitoring and purchasing limited-edition Pop Mart collectibles. Features real-time availability checking, automatic cart addition, Discord notifications, and anti-detection measures.',
+    github: 'https://github.com/andryuxiong/labububot',
+    demo: '', // No demo available as it's a bot
+    image: labubuBotImg,
+    techStack: ['Python', 'Selenium', 'Discord API', 'Web Automation'],
+    date: '2024'
+  },
+  {
     title: 'Personal Portfolio Website',
     description:
       'A modern, responsive portfolio website showcasing my projects, experience, and skills. Features a clean, interactive design with smooth animations, dark/light mode, and a mobile-first approach. Built with React and Chakra UI, demonstrating frontend development skills and attention to user experience.',
@@ -63,7 +74,7 @@ const projects = [
     title: '2D Platformer Game',
     description:
       'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
-    github: '', // Placeholder for now
+    github: 'https://github.com/andryuxiong/2D-Platform-Game',
     demo: '', // Placeholder for now
     image: 'https://via.placeholder.com/400x180?text=Project+Image',
     techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
