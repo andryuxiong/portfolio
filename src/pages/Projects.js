@@ -47,7 +47,7 @@ const projects = [
     title: '2D Platformer Game',
     description:
       'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
-    github: '', // Placeholder for now
+    github: 'https://github.com/andryuxiong/2D-Platform-Game',
     demo: '', // Placeholder for now
     image: placeholderImg,
     techStack: ['Java', 'Swing', 'AWT'],
