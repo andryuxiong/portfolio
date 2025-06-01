@@ -29,7 +29,7 @@ My resume is available for download on the site.
 
 ## 📝 How to Run Locally
 ```bash
-git clone https://github.com/andryuxiong/my-portfolio.git
+git clone https://github.com/andryuxiong/portfolio.git
 cd my-portfolio
 npm install
 npm start
@@ -40,5 +40,3 @@ npm start
 npm run build
 ```
 ---
-
-© 2025 Andrew Xiong 
