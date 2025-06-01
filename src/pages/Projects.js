@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import medicareLogo from '../assets/projects/medicare-logo.png';
 import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
+import labubuBotImg from '../assets/projects/labubu-bot.png';
 
 const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
@@ -52,38 +53,51 @@ const projects = [
     techStack: ['Java', 'Swing', 'AWT'],
     date: '2023'
   },
+  {
+    title: 'Labubu Bot',
+    description:
+      'An automated bot built with Python and Selenium for monitoring and purchasing limited-edition Pop Mart collectibles. Features include real-time availability checking, automatic cart addition, Discord notifications, and anti-detection measures. Implements human-like behavior patterns and robust error handling.',
+    github: 'https://github.com/andryuxiong/labububot',
+    demo: '', // No demo available as it's a bot
+    image: labubuBotImg,
+    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation'],
+    date: '2025'
+  },
 ];
 
 const Projects = () => {
-  const bgColor = useColorModeValue('ocean.background.light', 'ocean.background.dark');
+  const bgColor = useColorModeValue('linear(to-br, #e0eafc, #cfdef3)', 'linear(to-br, #232526, #414345)');
   const textColor = useColorModeValue('ocean.text.light', 'ocean.text.dark');
   const accentColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
 
   return (
-    <Center pt="100px" minHeight="100vh" px={6} bg={bgColor}>
+    <Center pt="100px" minHeight="100vh" px={6} bgGradient={bgColor}>
       <Container maxW="1200px">
         <VStack spacing={8} w="100%">
           <MotionHeading
         as="h1"
         size="2xl"
         fontWeight="bold"
-            color={accentColor}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+        color={accentColor}
+        display="flex"
+        alignItems="center"
+        gap={3}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
         textAlign="center"
-            position="relative"
-            _after={{
-              content: '""',
-              position: 'absolute',
-              bottom: '-10px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '60px',
-              height: '4px',
-              bg: accentColor,
-              borderRadius: 'full',
-            }}
+        position="relative"
+        _after={{
+          content: '""',
+          position: 'absolute',
+          bottom: '-10px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '60px',
+          height: '4px',
+          bg: accentColor,
+          borderRadius: 'full',
+        }}
       >
         Technical Projects
           </MotionHeading>
@@ -108,23 +122,24 @@ const Projects = () => {
             mb={4}
           />
 
-          <SimpleGrid 
-            columns={{ base: 1, md: 2 }} 
-            spacing={8}
-            w="100%"
-          >
+          {/* Responsive two-column grid layout */}
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={1} w="100%" align="stretch" justifyItems="start" maxW="820px" mx="auto">
             {projects.map((project, index) => (
               <MotionBox
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ scale: 1.03 }}
+                w="100%"
+                maxW="400px"
+                h="100%"
               >
                 <ProjectCard {...project} location="projects" />
               </MotionBox>
-        ))}
-      </SimpleGrid>
+            ))}
+          </SimpleGrid>
         </VStack>
       </Container>
   </Center>
