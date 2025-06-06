@@ -20,6 +20,8 @@ import personalPhoto from '../components/personalphoto.PNG';
 import medicareLogo from '../assets/projects/medicare-logo.png';
 import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
 import labubuBotImg from '../assets/projects/labubu-bot.png';
+import marketseerImg from '../assets/projects/marketseer.png';
+
 import Experience from '../sections/Experience';
 import Skills from '../sections/Skills';
 import ProjectCard from '../components/ProjectCard';
@@ -33,11 +35,11 @@ const projects = [
   {
     title: 'MarketSeer Stock Predictor',
     description:
-      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, dark/light mode, and responsive design. Built using Plotly.js for data visualization using Finnhub API for real-time stock data.',
+      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, and responsive design. Built using Plotly.js for data visualization using Finnhub/yfinance API for real-time stock data. Will implement news Natural Language Processinglater!',
     github: 'https://github.com/andryuxiong/marketseer',
-    demo: '', // will add link when deployed
-    image: 'https://via.placeholder.com/400x180?text=MarketSeer',
-    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js'],
+    demo: 'https://market-seer.vercel.app/', 
+    image: marketseerImg,
+    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js', 'Pandas', 'Finnhub/yFinance API', 'TenserFlow LSTM Machine Learning Model'],
     date: '2025'
   },
   {
