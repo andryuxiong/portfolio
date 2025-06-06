@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'MarketSeer Stock Predictor',
     description:
-      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, and responsive design. Built using Plotly.js for data visualization using Finnhub/yfinance API for real-time stock data. Will implement news Natural Language Processinglater!',
+    'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, and responsive design. Built using Plotly.js for data visualization using Finnhub/yfinance API for real-time stock data. still fixing some bugs and features, will implement news Natural Language Processing later!',
     github: 'https://github.com/andryuxiong/marketseer',
     demo: 'https://market-seer.vercel.app/', 
     image: marketseerImg,
