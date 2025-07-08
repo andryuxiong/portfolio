@@ -25,6 +25,8 @@ import marketseerImg from '../assets/projects/marketseer.png';
 import Experience from '../sections/Experience';
 import Skills from '../sections/Skills';
 import ProjectCard from '../components/ProjectCard';
+import RelevantWorkExperience from '../sections/RelevantWorkExperience';
+import Contact from '../sections/Contact';
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
@@ -35,31 +37,31 @@ const projects = [
   {
     title: 'MarketSeer Stock Predictor',
     description:
-    'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts, and responsive design. Built using Plotly.js for data visualization using Finnhub/yfinance API for real-time stock data. still fixing some bugs and features, will implement news Natural Language Processing later!',
+      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts and responsive design. Built using Plotly.js for data visualization and Finnhub/yFinance API for real-time stock data. Planned: add news-based Natural Language Processing.',
     github: 'https://github.com/andryuxiong/marketseer',
     demo: 'https://market-seer.vercel.app/', 
     image: marketseerImg,
-    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js', 'Pandas', 'Finnhub/yFinance API', 'TenserFlow LSTM Machine Learning Model'],
+    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js', 'Pandas', 'Finnhub/yFinance API', 'TensorFlow LSTM Machine Learning Model'],
     date: '2025'
   },
   {
     title: 'AI Medicare Assistant',
     description:
-      'An AI-powered healthcare assistant that helps users understand their symptoms and navigate Medicare coverage. Features include real-time symptom analysis, personalized medical recommendations, and voice interaction capabilities. Built with a modern tech stack including React.js and Java Spring Boot, the application provides an intuitive interface for users to access healthcare information and guidance.',
+      'A full-stack AI-powered healthcare assistant that helps users understand their symptoms and navigate medical recommendations. Features real-time symptom analysis, personalized medical recommendations, and voice interaction. Built with React, Java Spring Boot, and OpenAI API for an intuitive user experience.',
     github: 'https://github.com/andryuxiong/medicare-ai',
     demo: 'https://medicare-ai-three.vercel.app/',
     image: medicareLogo,
-    techStack: ['React.js', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
+    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
     date: '2024'
   },
   {
     title: 'Labubu Bot',
     description:
-      'An automated bot built with Python and Selenium for monitoring and purchasing limited-edition Pop Mart collectibles. Features real-time availability checking, automatic cart addition, Discord notifications, and anti-detection measures.',
+      'An automated bot built with Python and Selenium for monitoring and purchasing limited-edition Pop Mart collectibles. Features real-time availability checking, automatic cart addition, Discord notifications, and anti-detection measures. Implements human-like behavior patterns and robust error handling.',
     github: 'https://github.com/andryuxiong/labububot',
-    demo: '', // No demo available as it's a bot
+    demo: '',
     image: labubuBotImg,
-    techStack: ['Python', 'Selenium', 'Discord API', 'Web Automation'],
+    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation'],
     date: '2024'
   },
   {
@@ -69,13 +71,13 @@ const projects = [
     github: 'https://github.com/andryuxiong/portfolio',
     demo: '', // the website itself lol
     image: portfolioScreenshot,
-    techStack: ['React.js', 'Chakra UI', 'Framer Motion', 'JavaScript'],
+    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript'],
     date: '2025'
   },
   {
     title: '2D Platformer Game',
     description:
-      'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
+      'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Includes performance optimizations and unique enhancements.',
     github: 'https://github.com/andryuxiong/2D-Platform-Game',
     demo: '', // Placeholder for now
     image: 'https://via.placeholder.com/400x180?text=Project+Image',
@@ -275,7 +277,7 @@ function Home() {
         </MotionBox>
       </Container>
 
-      {/* Projects Section */}
+      <RelevantWorkExperience />
       <Container maxW="container.md" px={3} py={10} position="relative" zIndex="3">
         <VStack spacing={8} w="100%">
           <MotionHeading
@@ -301,7 +303,6 @@ function Home() {
           >
             Featured Projects
           </MotionHeading>
-
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="100%">
             {projects.map((project, index) => (
               <MotionBox
@@ -317,9 +318,9 @@ function Home() {
           </SimpleGrid>
         </VStack>
       </Container>
-
       <Skills />
       <Experience />
+      <Contact />
     </Box>
   );
 }
