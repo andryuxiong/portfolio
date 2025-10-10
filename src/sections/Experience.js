@@ -22,7 +22,8 @@ import {
       details: [
         'Efficiently processed and fulfilled a high volume of online orders during the peak of COVID-19, ensuring timely and accurate delivery of products to customers.',
         'Prioritized customer satisfaction by adhering to strict timelines and quality standards, helping the company meet increased demand and ensuring a seamless shopping experience.',
-        'Worked collaboratively with team members and adapted to rapidly changing circumstances, including evolving safety protocols and increased workload during the pandemic.'
+        'Worked collaboratively with team members and adapted to rapidly changing circumstances, including evolving safety protocols and increased workload during the pandemic.',
+        'What I learned: Developed strong teamwork, adaptability, and time management skills in a fast-paced environment.'
       ]
     },
     {
@@ -33,7 +34,8 @@ import {
         'Provided day-to-day care for children with autism, including meal preparation, hygiene support, emotional guidance, and structured recreational activities.',
         "Maintained a clean and organized environment, ensuring safety and consistency aligned with each child's care plan.",
         'Followed specific behavioral strategies and communication protocols tailored to individual needs.',
-        'Demonstrated patience, adaptability, and attention to detail in a highly sensitive and responsibility-driven role.'
+        'Demonstrated patience, adaptability, and attention to detail in a highly sensitive and responsibility-driven role.',
+        'What I learned: Strengthened empathy, communication, and problem-solving skills while supporting individuals with diverse needs.'
       ]
     }
   ];
@@ -171,7 +173,7 @@ import {
             mt={12}
             mb={6}
           >
-          Work Experience
+          Other Work Experience
         </Heading>
 
         <VStack align="start" spacing={10}>
