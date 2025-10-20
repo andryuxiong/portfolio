@@ -9,56 +9,60 @@ const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const ProjectCard = ({ title, description, github, demo, image, techStack = [], date = '2024' }) => {
-  const cardBg = useColorModeValue('rgba(255,255,255,0.3)', 'rgba(26,32,44,0.4)');
-  const textColor = useColorModeValue('gray.700', 'gray.100');
-  const borderColor = useColorModeValue('ocean.accent', 'ocean.secondary.dark');
-  const iconColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
-  const tagBg = useColorModeValue('ocean.secondary.light', 'ocean.secondary.dark');
-  const gradientBar = useColorModeValue('linear(to-r, #0f2027, #2c5364)', 'linear(to-r, #232526, #414345)');
+  const cardBg = useColorModeValue('white', 'gray.900');
+  const textColor = useColorModeValue('minimal.secondary.light', 'minimal.secondary.dark');
+  const iconColor = useColorModeValue('minimal.accent', 'minimal.text.dark');
+  const tagBg = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
 
   return (
     <MotionBox
-      whileHover={{ y: -2, scale: 1.01, boxShadow: '0 2px 8px rgba(44,83,100,0.08)' }}
+      whileHover={{ y: -2, scale: 1.01 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
       bg={cardBg}
       borderRadius="xl"
-      boxShadow="0 1px 4px rgba(44,83,100,0.04)"
-      style={{ backdropFilter: 'blur(4px)' }}
+      boxShadow={useColorModeValue(
+        '0 4px 20px rgba(0,0,0,0.08)', 
+        '0 4px 20px rgba(255,255,255,0.02)'
+      )}
       w="100%"
       minH="220px"
-      mb={2}
-      p={4}
+      mb={4}
+      p={5}
+      position="relative"
+      overflow="hidden"
     >
       <VStack align="center" spacing={2} w="100%">
-        <Box position="relative" w="100%" display="flex" justifyContent="center">
+        <Box position="relative" w="100%" display="flex" justifyContent="center" mb={3}>
           <MotionImage
             src={image || placeholderImg}
             alt={title + ' image'}
             borderRadius="xl"
-            mb={1}
             w="100%"
-            maxW="320px"
-            maxH="120px"
+            maxW="340px"
+            maxH="140px"
             objectFit="cover"
-            boxShadow="md"
-            transition="transform 0.3s ease"
+            boxShadow={useColorModeValue(
+              '0 8px 25px rgba(0,0,0,0.1)', 
+              '0 8px 25px rgba(255,255,255,0.02)'
+            )}
             whileHover={{ scale: 1.03 }}
-            filter="brightness(0.97)"
-            _hover={{ filter: 'brightness(1)' }}
+            transition={{ duration: 0.3 }}
           />
           <Badge
             position="absolute"
-            top={2}
-            right={2}
-            colorScheme="blue"
+            top={3}
+            right={3}
+            bg={useColorModeValue('rgba(255,255,255,0.95)', 'rgba(0,0,0,0.8)')}
+            color={useColorModeValue('#000000', '#ffffff')}
             variant="solid"
-            px={2}
-            py={0.5}
+            px={3}
+            py={1}
             borderRadius="full"
             fontSize="0.75em"
+            fontWeight="600"
             display="flex"
             alignItems="center"
             gap={1}
@@ -67,73 +71,105 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
             {date}
           </Badge>
         </Box>
+        
         <Heading
           as="h4"
-          size="md"
-          color="ocean.accent"
-          fontWeight="bold"
+          size="lg"
+          color={iconColor}
+          fontWeight="600"
           textAlign="center"
-          mt={2}
+          letterSpacing="tight"
+          mb={3}
         >
           {title}
         </Heading>
-        <Text color={textColor} fontSize="sm" lineHeight="tall" textAlign="center">
+        
+        <Text 
+          color={textColor} 
+          fontSize="md" 
+          lineHeight="relaxed" 
+          textAlign="center"
+          mb={4}
+        >
           {description}
         </Text>
-        <Flex wrap="wrap" gap={1} mt={1} justify="center">
+
+        <Flex wrap="wrap" gap={2} justify="center" mb={4}>
           {techStack.map((tech) => (
-            <Tooltip key={tech} label={`Built with ${tech}`} placement="top">
+            <Tooltip key={tech} label={`Built with ${tech}`} placement="top" hasArrow>
               <Tag
-                size="sm"
+                size="md"
                 borderRadius="full"
                 variant="solid"
+                bg={tagBg}
                 color="white"
-                fontWeight="medium"
+                fontWeight="500"
                 letterSpacing="wide"
+                px={3}
+                py={1}
+                cursor="pointer"
                 transition="all 0.2s"
-                _hover={{ transform: 'scale(1.05)', bg: 'ocean.accent', color: 'white' }}
-                bg="ocean.accent"
+                _hover={{ 
+                  transform: 'translateY(-1px)',
+                  boxShadow: useColorModeValue(
+                    '0 4px 12px rgba(0,0,0,0.15)', 
+                    '0 4px 12px rgba(255,255,255,0.1)'
+                  )
+                }}
               >
                 <TagLabel>{tech}</TagLabel>
               </Tag>
             </Tooltip>
           ))}
         </Flex>
-        <HStack spacing={3} mt={2} w="100%" justify="center">
+
+        <HStack spacing={4} w="100%" justify="center">
           {github && (
-            <Link 
-              href={github} 
-              isExternal 
-              display="flex" 
-              alignItems="center" 
-              _hover={{ textDecoration: 'none' }}
-            >
-              <MotionBox
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ display: 'flex', alignItems: 'center' }}
+            <Link href={github} isExternal _hover={{ textDecoration: 'none' }}>
+              <Box
+                bg={useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)')}
+                px={4}
+                py={2}
+                borderRadius="full"
+                display="flex"
+                alignItems="center"
+                gap={2}
+                border="1px solid"
+                borderColor={useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)')}
+                cursor="pointer"
+                transition="all 0.2s"
+                _hover={{
+                  backgroundColor: useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)'),
+                  borderColor: useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)')
+                }}
               >
-                <FaGithub size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
-              </MotionBox>
-              <Text fontSize="sm" color="ocean.accent" fontWeight="medium">GitHub</Text>
+                <Icon as={FaGithub} color={iconColor} boxSize={4} />
+                <Text fontSize="sm" color={iconColor} fontWeight="500">GitHub</Text>
+              </Box>
             </Link>
           )}
           {demo && (
-            <Link 
-              href={demo} 
-              isExternal 
-              display="flex" 
-              alignItems="center" 
-              _hover={{ textDecoration: 'none' }}
-            >
-              <MotionBox
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ display: 'flex', alignItems: 'center' }}
+            <Link href={demo} isExternal _hover={{ textDecoration: 'none' }}>
+              <Box
+                bg={useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)')}
+                px={4}
+                py={2}
+                borderRadius="full"
+                display="flex"
+                alignItems="center"
+                gap={2}
+                border="1px solid"
+                borderColor={useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)')}
+                cursor="pointer"
+                transition="all 0.2s"
+                _hover={{
+                  backgroundColor: useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)'),
+                  borderColor: useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)')
+                }}
               >
-                <FaLink size={20} color={iconColor} style={{ marginRight: 6, cursor: 'pointer' }} />
-              </MotionBox>
-              <Text fontSize="sm" color="ocean.accent" fontWeight="medium">Demo</Text>
+                <Icon as={FaLink} color={iconColor} boxSize={4} />
+                <Text fontSize="sm" color={iconColor} fontWeight="500">Demo</Text>
+              </Box>
             </Link>
           )}
         </HStack>
@@ -142,4 +178,4 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
   );
 };
 
-export default ProjectCard; 
+export default ProjectCard;
