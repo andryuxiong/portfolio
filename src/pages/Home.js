@@ -41,7 +41,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/marketseer',
     demo: 'https://market-seer.vercel.app/', 
     image: marketseerImg,
-    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js', 'Pandas', 'Finnhub/yFinance API', 'TensorFlow LSTM Machine Learning Model'],
+    techStack: ['React', 'TypeScript', 'FastAPI', 'TensorFlow', 'Scikit-learn', 'PostgreSQL', 'Pandas', 'Plotly.js'],
     date: '2025'
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/medicare-ai',
     demo: 'https://medicare-ai-three.vercel.app/',
     image: medicareLogo,
-    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
+    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Spring WebFlux', 'Bucket4j'],
     date: '2024'
   },
   {
@@ -61,7 +61,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/labububot',
     demo: '',
     image: labubuBotImg,
-    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation'],
+    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation', 'BeautifulSoup'],
     date: '2024'
   },
   {
@@ -71,7 +71,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/portfolio',
     demo: '', // the website itself lol
     image: portfolioScreenshot,
-    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript'],
+    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript', 'React Router', 'EmailJS'],
     date: '2025'
   },
   {
@@ -81,19 +81,19 @@ const projects = [
     github: 'https://github.com/andryuxiong/2D-Platform-Game',
     demo: '', // Placeholder for now
     image: 'https://via.placeholder.com/400x180?text=Project+Image',
-    techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
+    techStack: ['Java', 'Swing', 'AWT', 'Game Physics'],
     date: '2023'
   },
 ];
 
 function Home() {
   const [useEmojis] = useState(true);
-  const accentColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
-  const textColor = useColorModeValue('ocean.text.light', 'ocean.text.dark');
-  const bgColor = useColorModeValue('ocean.background.light', 'ocean.background.dark');
+  const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
+  const textColor = useColorModeValue('minimal.text.light', 'minimal.text.dark');
+  const bgColor = useColorModeValue('minimal.background.light', 'minimal.background.dark');
   const gradientBg = useColorModeValue(
-    'linear(to-b, ocean.background.light, ocean.background.light, ocean.background.light)',
-    'linear(to-b, ocean.background.dark, ocean.background.dark, ocean.background.dark)'
+    'linear(to-b, minimal.background.light, minimal.background.light, minimal.background.light)',
+    'linear(to-b, minimal.background.dark, minimal.background.dark, minimal.background.dark)'
   );
 
   const socialLinks = [
@@ -231,7 +231,7 @@ function Home() {
                       w={6}
                       h={6}
                       color={accentColor}
-                      _hover={{ color: 'ocean.secondary.dark' }}
+                      _hover={{ color: 'minimal.secondary.dark' }}
                       transition="all 0.2s"
                       filter="drop-shadow(0 0 2px rgba(0,0,0,0.2))"
                     />
@@ -303,14 +303,18 @@ function Home() {
           >
             Featured Projects
           </MotionHeading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="100%">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="100%">
             {projects.map((project, index) => (
               <MotionBox
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 60, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.7, 
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94] 
+                }}
               >
                 <ProjectCard {...project} />
               </MotionBox>

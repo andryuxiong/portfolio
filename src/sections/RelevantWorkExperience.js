@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Container, Image, HStack, Badge, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Heading, Text, Container, Image, HStack, Badge, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
@@ -7,7 +7,16 @@ import trustedLogo from '../assets/projects/trusted-logo.png';
 const MotionBox = motion(Box);
 
 const RelevantWorkExperience = () => {
-  const accentColor = '#219EBC'; 
+  const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark'); 
+  
+  // Color values for consistent usage
+  const timelineLineColor = useColorModeValue('#000000', '#ffffff');
+  const contentBgColor = useColorModeValue('#ffffff', '#2d3748');
+  const contentTextColor = useColorModeValue('#000000', '#ffffff');
+  const contentBorderColor = useColorModeValue('#000000', '#ffffff');
+  const badgeBgColor = useColorModeValue('#000000', '#ffffff');
+  const badgeTextColor = useColorModeValue('#ffffff', '#000000');
+  const dateTextColor = useColorModeValue('#000000', '#ffffff');
 
   // Responsive icon size and position
   const iconSize = useBreakpointValue({ base: '80px', md: '85px' });
@@ -61,26 +70,32 @@ const RelevantWorkExperience = () => {
         </Heading>
         <Box pl={{ base: 8, md: 0 }}>
           <VerticalTimeline
-            lineColor={accentColor}
+            lineColor={timelineLineColor}
             layout={'1-column-left'}
             animate={true}
           >
             <VerticalTimelineElement
               className="vertical-timeline-element--work custom-timeline-element"
               contentStyle={{ 
-                background: accentColor, 
-                color: '#fff',
+                background: contentBgColor, 
+                color: contentTextColor,
+                border: `2px solid ${contentBorderColor}`,
                 padding: '24px 24px',
                 paddingLeft: '24px',
                 paddingRight: '24px',
               }}
               contentArrowStyle={{ 
-                borderRight: `7px solid ${accentColor}`
+                borderRight: `7px solid ${contentBorderColor}`
               }}
               date="June 2025 – August 2025 | Minneapolis, MN"
+              dateStyle={{
+                color: dateTextColor,
+                fontWeight: '600'
+              }}
               iconStyle={{
-                background: '#fff',
-                color: '#fff',
+                background: '#ffffff',
+                color: '#000000',
+                border: `2px solid ${contentBorderColor}`,
                 width: iconSize,
                 height: iconSize,
                 left: iconLeft,
@@ -89,7 +104,7 @@ const RelevantWorkExperience = () => {
                 <MotionBox
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   transition={{ duration: 0.3 }}
-                  boxShadow="0 4px 12px rgba(33, 158, 188, 0.3)"
+                  boxShadow={useColorModeValue('0 4px 12px rgba(0, 0, 0, 0.1)', '0 4px 12px rgba(255, 255, 255, 0.1)')}
                   borderRadius="50%"
                 >
                   <Image
@@ -106,7 +121,7 @@ const RelevantWorkExperience = () => {
               }
             >
               <Box mb={{ base: 4, md: 0 }}>
-                <Heading as="h3" size="md" mb={1}>
+                <Heading as="h3" size="md" mb={1} color={contentTextColor}>
                   Trusted Semiconductor Solutions
                 </Heading>
                 <Heading 
@@ -114,8 +129,7 @@ const RelevantWorkExperience = () => {
                   size={'lg'} 
                   mb={2}
                   fontWeight="bold"
-                  color="white"
-                  textShadow="0 1px 2px rgba(0,0,0,0.3)"
+                  color={contentTextColor}
                   letterSpacing="tight"
                 >
                   AI Software Engineering Intern
@@ -136,7 +150,8 @@ const RelevantWorkExperience = () => {
                       transition={{ duration: 0.3, delay: idx * 0.1 }}
                     >
                       <Badge 
-                        colorScheme="teal" 
+                        bg={badgeBgColor}
+                        color={badgeTextColor}
                         variant="solid" 
                         fontSize="0.85em"
                         px={2}
@@ -153,16 +168,16 @@ const RelevantWorkExperience = () => {
                   ))}
                 </HStack>
                 
-                <Text mb={3}>
+                <Text mb={3} color={contentTextColor}>
                   🛠️ Engineered RAG and graph database solutions for real-time, complex Q&A on semiconductor datasheets and process designkits, boosting information retrieval accuracy by 90% and streamlining engineering workflows.
                 </Text>
-                <Text mb={3}>
+                <Text mb={3} color={contentTextColor}>
                   🤖 Fine-tuned and benchmarked Large Language Models (LLMs) (LaMa, Qwen, Mixtral), optimizing token efficiency and inference speed for production use cases.
                 </Text>
-                <Text mb={3}>
+                <Text mb={3} color={contentTextColor}>
                   ⚙️ Built automated data pipelines for document reprocessing and tagging, reducing manual workload and enabling efficient LLM ingestion.
                 </Text>
-                <Text mb={3}>
+                <Text mb={3} color={contentTextColor}>
                   🗂️ Developed a domain-adapted LLM tool to extract and generate key data from Liberty (.lib) files, allowing engineers to query design specifications and critical information—reducing reliance on expensive EDA tools and accelerating chip design processes.
                 </Text>
               </Box>

@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
-  const accentColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
+  const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
   const cardBg = useColorModeValue('white', 'gray.800');
   const cardBorder = useColorModeValue('gray.200', 'gray.700');
   const form = useRef();
@@ -61,7 +61,7 @@ const Contact = () => {
               </Box>
             </Heading>
             <Text fontSize={{ base: 'md', md: 'lg' }} color={useColorModeValue('gray.700', 'gray.200')}>
-              I’m always open to new opportunities, collaborations, or just a friendly chat! Fill out the form below and I’ll get back to you soon. Even if you just want to say hi, I’d love to connect.
+              I'm always open to new opportunities, collaborations, or just a friendly chat! Fill out the form below and I'll get back to you soon. Even if you just want to say hi, I'd love to connect.
             </Text>
             {submitted ? (
               <Alert status="success" borderRadius="md">
@@ -83,8 +83,8 @@ const Contact = () => {
                     <FormLabel>Message</FormLabel>
                     <Textarea name="message" placeholder="Your message" rows={5} />
                   </FormControl>
-                  <Button type="submit" colorScheme="blue" bg={accentColor} color="white" _hover={{ bg: accentColor, opacity: 0.9 }}>
-                    Let’s Connect!
+                  <Button type="submit" bg={accentColor} color="white" _hover={{ bg: accentColor, opacity: 0.9 }}>
+                    Let's Connect!
                   </Button>
                 </VStack>
               </form>
@@ -96,4 +96,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

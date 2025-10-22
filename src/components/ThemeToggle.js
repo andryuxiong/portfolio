@@ -13,11 +13,11 @@ const ThemeToggle = () => {
         size="md"
         variant="ghost"
         aria-label="Toggle theme"
-        color={colorMode === 'light' ? 'ocean.text.light' : 'ocean.text.dark'}
+        color={colorMode === 'light' ? 'minimal.text.light' : 'minimal.text.dark'}
         transition="all 0.3s ease"
         _hover={{
-            bg: colorMode === 'light' ? 'ocean.secondary.light' : 'ocean.secondary.dark',
-            color: colorMode === 'light' ? 'ocean.text.light' : 'ocean.text.dark',
+            bg: colorMode === 'light' ? 'minimal.secondary.light' : 'minimal.secondary.dark',
+            color: colorMode === 'light' ? 'minimal.text.light' : 'minimal.text.dark',
             transform: 'scale(1.05)',
             boxShadow: 'md',
         }}

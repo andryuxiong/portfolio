@@ -21,7 +21,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/marketseer',
     demo: 'https://market-seer.vercel.app/', 
     image: marketseerImg,
-    techStack: ['React', 'TypeScript', 'FastAPI', 'Python', 'Chakra UI', 'Plotly.js', 'Pandas', 'Finnhub/yFinance API', 'TensorFlow LSTM Machine Learning Model'],
+    techStack: ['React', 'TypeScript', 'FastAPI', 'TensorFlow', 'Scikit-learn', 'PostgreSQL', 'Pandas', 'Plotly.js'],
     date: '2025'
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/medicare-ai',
     demo: 'https://medicare-ai-three.vercel.app/',
     image: medicareLogo,
-    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Web Speech API', 'Chakra UI'],
+    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Spring WebFlux', 'Bucket4j'],
     date: '2024'
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/portfolio',
     demo: '', // the demo is this website
     image: portfolioScreenshot,
-    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript'],
+    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript', 'React Router', 'EmailJS'],
     date: '2025'
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     github: 'https://github.com/andryuxiong/2D-Platform-Game',
     demo: '', // Placeholder for now
     image: placeholderImg,
-    techStack: ['Java', 'Swing', 'AWT', 'Object-Oriented Programming'],
+    techStack: ['Java', 'Swing', 'AWT', 'Game Physics'],
     date: '2023'
   },
   {
@@ -61,15 +61,15 @@ const projects = [
     github: 'https://github.com/andryuxiong/labububot',
     demo: '', // No demo available as it's a bot
     image: labubuBotImg,
-    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation'],
+    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation', 'BeautifulSoup'],
     date: '2025'
   },
 ];
 
 const Projects = () => {
   const bgColor = useColorModeValue('linear(to-br, #e0eafc, #cfdef3)', 'linear(to-br, #232526, #414345)');
-  const textColor = useColorModeValue('ocean.text.light', 'ocean.text.dark');
-  const accentColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
+  const textColor = useColorModeValue('minimal.text.light', 'minimal.text.dark');
+  const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
 
   return (
     <Center pt="100px" minHeight="100vh" px={6} bgGradient={bgColor}>

@@ -2,7 +2,7 @@ import { Box, HStack, IconButton, Link, useColorModeValue, Text } from '@chakra-
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
-  const iconColor = useColorModeValue('ocean.accent', 'ocean.accent');
+  const iconColor = useColorModeValue('minimal.accent', 'minimal.text.dark');
 
   return (
     <Box as="footer" id="footer" py={10} textAlign="center">

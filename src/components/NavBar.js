@@ -8,6 +8,7 @@ import {
     Stack,
     Text,
     Container,
+    useColorModeValue,
   } from '@chakra-ui/react';
   import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
   import { FiFileText } from 'react-icons/fi';
@@ -39,7 +40,7 @@ import {
           whileTap={{ scale: 0.95 }}
           _hover={{
             textDecoration: 'none',
-            bg: 'ocean.accent',
+            bg: 'minimal.accent',
             color: 'white',
           }}
         >
@@ -63,7 +64,7 @@ import {
         whileTap={{ scale: 0.95 }}
         _hover={{
           textDecoration: 'none',
-          bg: 'ocean.accent',
+          bg: 'minimal.accent',
           color: 'white',
         }}
       >
@@ -103,30 +104,11 @@ import {
               py={1}
             >
               <Text
-                fontWeight="extrabold"
-                fontSize="2xl"
-                bgGradient="linear(to-r, ocean.accent, ocean.secondary.light)"
-                bgClip="text"
-                position="relative"
-                _after={{
-                  content: '""',
-                  position: 'absolute',
-                  bottom: '-2px',
-                  left: '0',
-                  width: '100%',
-                  height: '2px',
-                  background: 'linear-gradient(to right, ocean.accent, ocean.secondary.light)',
-                  transform: 'scaleX(0)',
-                  transformOrigin: 'left',
-                  transition: 'transform 0.3s ease-in-out',
-                }}
-                _hover={{
-                  _after: {
-                    transform: 'scaleX(1)',
-                  },
-                }}
+                fontWeight="bold"
+                fontSize="3xl"
+                color={useColorModeValue('minimal.accent', 'minimal.text.dark')}
               >
-                Andrew Xiong
+                AX
               </Text>
             </MotionBox>
   
@@ -152,7 +134,7 @@ import {
                 whileTap={{ scale: 0.95 }}
                 _hover={{
                   textDecoration: 'none',
-                  bg: 'ocean.accent',
+                  bg: 'minimal.accent',
                   color: 'white',
                 }}
               >

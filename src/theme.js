@@ -7,27 +7,27 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   colors: {
-    ocean: {
-      accent: '#219EBC',      // Ocean blue for highlights
+    minimal: {
+      accent: '#000000',
       background: {
-        light: '#E0FBFC',     // Light blue for light mode
-        dark: '#023047',      // Deep blue for dark mode
+        light: '#FFFFFF',
+        dark: '#000000',
       },
       text: {
-        light: '#023047',     // Deep blue for text in light mode
-        dark: '#FFFFFF',      // White text in dark mode
+        light: '#000000',
+        dark: '#FFFFFF',
       },
       secondary: {
-        light: '#8ECAE6',     // Light blue for highlights in light mode
-        dark: '#126782',      // Darker blue for highlights in dark mode
+        light: '#666666',
+        dark: '#999999',
       },
     },
   },
   styles: {
     global: (props) => ({
       body: {
-        bg: props.colorMode === 'light' ? 'ocean.background.light' : 'ocean.background.dark',
-        color: props.colorMode === 'light' ? 'ocean.text.light' : 'ocean.text.dark',
+        bg: props.colorMode === 'light' ? 'minimal.background.light' : 'minimal.background.dark',
+        color: props.colorMode === 'light' ? 'minimal.text.light' : 'minimal.text.dark',
         transition: 'background-color 0.2s ease, color 0.2s ease',
       },
     }),

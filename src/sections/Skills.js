@@ -30,7 +30,7 @@ const skills = [
   },
 ];
 
-const SkillItem = ({ name, icon: Icon, level, bgColor, hoverBgColor, textColor }) => (
+const SkillItem = ({ name, icon: Icon, level, bgColor, hoverBgColor, textColor, iconColor }) => (
   <VStack
     spacing={2}
     p={3}
@@ -42,7 +42,7 @@ const SkillItem = ({ name, icon: Icon, level, bgColor, hoverBgColor, textColor }
       transition: 'all 0.2s ease-in-out'
     }}
   >
-    <Icon size={24} color="#219EBC" />
+    <Icon size={24} color={iconColor} />
     <Text fontWeight="medium" fontSize="sm">
       {name}
     </Text>
@@ -60,12 +60,13 @@ const SkillItem = ({ name, icon: Icon, level, bgColor, hoverBgColor, textColor }
 );
 
 const Skills = () => {
-  const accentColor = useColorModeValue('ocean.accent', 'ocean.secondary.light');
+  const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
   const cardBg = useColorModeValue('white', 'gray.800');
   const cardBorder = useColorModeValue('gray.200', 'gray.700');
   const textColor = useColorModeValue('gray.600', 'gray.400');
   const skillBg = useColorModeValue('gray.50', 'gray.700');
   const skillHoverBg = useColorModeValue('gray.100', 'gray.600');
+  const iconColor = useColorModeValue('minimal.accent', 'minimal.text.dark');
 
   return (
     <Box py={12} id="skills">
@@ -138,6 +139,7 @@ const Skills = () => {
                         bgColor={skillBg}
                         hoverBgColor={skillHoverBg}
                         textColor={textColor}
+                        iconColor={iconColor}
                       />
                     </MotionBox>
               ))}
@@ -151,4 +153,4 @@ const Skills = () => {
 );
 };
 
-export default Skills; 
+export default Skills;

@@ -10,7 +10,7 @@ const AboutMe = () => {
             as="h2"
             size="lg"
             borderBottom="2px solid"
-            borderColor="ocean.accent"
+            borderColor="minimal.accent"
             pb={1}
             fontWeight="semibold"
           >
