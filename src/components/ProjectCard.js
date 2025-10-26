@@ -13,6 +13,26 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
   const textColor = useColorModeValue('minimal.secondary.light', 'minimal.secondary.dark');
   const iconColor = useColorModeValue('minimal.accent', 'minimal.text.dark');
   const tagBg = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
+  
+  // Pre-define all color values to avoid calling hooks inside callbacks
+  const cardShadow = useColorModeValue(
+    '0 4px 20px rgba(0,0,0,0.08)', 
+    '0 4px 20px rgba(255,255,255,0.02)'
+  );
+  const imageShadow = useColorModeValue(
+    '0 8px 25px rgba(0,0,0,0.1)', 
+    '0 8px 25px rgba(255,255,255,0.02)'
+  );
+  const badgeBg = useColorModeValue('rgba(255,255,255,0.95)', 'rgba(0,0,0,0.8)');
+  const badgeColor = useColorModeValue('#000000', '#ffffff');
+  const tagHoverShadow = useColorModeValue(
+    '0 4px 12px rgba(0,0,0,0.15)', 
+    '0 4px 12px rgba(255,255,255,0.1)'
+  );
+  const buttonBg = useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)');
+  const buttonBorder = useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)');
+  const buttonHoverBg = useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)');
+  const buttonHoverBorder = useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)');
 
   return (
     <MotionBox
@@ -23,10 +43,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
       transition={{ duration: 0.4 }}
       bg={cardBg}
       borderRadius="xl"
-      boxShadow={useColorModeValue(
-        '0 4px 20px rgba(0,0,0,0.08)', 
-        '0 4px 20px rgba(255,255,255,0.02)'
-      )}
+      boxShadow={cardShadow}
       w="100%"
       minH="220px"
       mb={4}
@@ -44,10 +61,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
             maxW="340px"
             maxH="140px"
             objectFit="cover"
-            boxShadow={useColorModeValue(
-              '0 8px 25px rgba(0,0,0,0.1)', 
-              '0 8px 25px rgba(255,255,255,0.02)'
-            )}
+            boxShadow={imageShadow}
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
           />
@@ -55,8 +69,8 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
             position="absolute"
             top={3}
             right={3}
-            bg={useColorModeValue('rgba(255,255,255,0.95)', 'rgba(0,0,0,0.8)')}
-            color={useColorModeValue('#000000', '#ffffff')}
+            bg={badgeBg}
+            color={badgeColor}
             variant="solid"
             px={3}
             py={1}
@@ -111,10 +125,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
                 transition="all 0.2s"
                 _hover={{ 
                   transform: 'translateY(-1px)',
-                  boxShadow: useColorModeValue(
-                    '0 4px 12px rgba(0,0,0,0.15)', 
-                    '0 4px 12px rgba(255,255,255,0.1)'
-                  )
+                  boxShadow: tagHoverShadow
                 }}
               >
                 <TagLabel>{tech}</TagLabel>
@@ -127,7 +138,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
           {github && (
             <Link href={github} isExternal _hover={{ textDecoration: 'none' }}>
               <Box
-                bg={useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)')}
+                bg={buttonBg}
                 px={4}
                 py={2}
                 borderRadius="full"
@@ -135,12 +146,12 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
                 alignItems="center"
                 gap={2}
                 border="1px solid"
-                borderColor={useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)')}
+                borderColor={buttonBorder}
                 cursor="pointer"
                 transition="all 0.2s"
                 _hover={{
-                  backgroundColor: useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)'),
-                  borderColor: useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)')
+                  backgroundColor: buttonHoverBg,
+                  borderColor: buttonHoverBorder
                 }}
               >
                 <Icon as={FaGithub} color={iconColor} boxSize={4} />
@@ -151,7 +162,7 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
           {demo && (
             <Link href={demo} isExternal _hover={{ textDecoration: 'none' }}>
               <Box
-                bg={useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)')}
+                bg={buttonBg}
                 px={4}
                 py={2}
                 borderRadius="full"
@@ -159,12 +170,12 @@ const ProjectCard = ({ title, description, github, demo, image, techStack = [], 
                 alignItems="center"
                 gap={2}
                 border="1px solid"
-                borderColor={useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)')}
+                borderColor={buttonBorder}
                 cursor="pointer"
                 transition="all 0.2s"
                 _hover={{
-                  backgroundColor: useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)'),
-                  borderColor: useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)')
+                  backgroundColor: buttonHoverBg,
+                  borderColor: buttonHoverBorder
                 }}
               >
                 <Icon as={FaLink} color={iconColor} boxSize={4} />
