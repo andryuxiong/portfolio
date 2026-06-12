@@ -18,7 +18,7 @@ const AboutMe = () => {
           </Heading>
 
           <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="medium" lineHeight="1.8">
-            Hi, I'm Andrew Xiong, a Computer Science student at Metropolitan State University and an aspiring Software Engineer. 
+            Hi, I'm Andrew Xiong, a computer science graduate and software engineer focused on full-stack and AI-enabled applications.
             I specialize in full-stack development and AI integration, with a focus on creating intuitive, user-friendly applications. 
             My recent work includes developing an AI-powered healthcare assistant using OpenAI GPT-4, showcasing my ability to combine 
             modern web technologies with cutting-edge AI capabilities. I'm passionate about building robust, scalable applications 

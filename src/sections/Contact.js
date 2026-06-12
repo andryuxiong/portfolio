@@ -61,7 +61,7 @@ const Contact = () => {
               </Box>
             </Heading>
             <Text fontSize={{ base: 'md', md: 'lg' }} color={useColorModeValue('gray.700', 'gray.200')}>
-              I'm always open to new opportunities, collaborations, or just a friendly chat! Fill out the form below and I'll get back to you soon. Even if you just want to say hi, I'd love to connect.
+              I'm open to new-grad software engineering roles, collaborations, and conversations about full-stack or AI application development. Send a message and I'll get back to you soon.
             </Text>
             {submitted ? (
               <Alert status="success" borderRadius="md">

@@ -28,7 +28,7 @@ const Footer = () => {
             _hover={{ opacity: 0.8 }}
           />
         </Link>
-        <Link href="mailto:xiongandrew@gmail.com">
+        <Link href="mailto:xiongandrew02@gmail.com">
           <IconButton
             icon={<FaEnvelope />}
             aria-label="Email"
@@ -41,7 +41,7 @@ const Footer = () => {
       </HStack>
 
       <Text fontSize="sm" color="gray.500">
-          site last updated: 07/03/2025
+          site last updated: 06/12/2026
       </Text>
     </Box>
   );
