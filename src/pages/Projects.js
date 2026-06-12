@@ -2,69 +2,11 @@
 import { Box, Heading, SimpleGrid, Center, Text, VStack, useColorModeValue, Container, Divider } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
-import medicareLogo from '../assets/projects/medicare-logo.png';
-import portfolioScreenshot from '../assets/projects/portfolio-screenshot.png';
-import labubuBotImg from '../assets/projects/labubu-bot.png';
-import marketseerImg from '../assets/projects/marketseer.png';
+import projects from '../data/projects';
 
 const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
-
-const placeholderImg = 'https://via.placeholder.com/400x180?text=Project+Image';
-
-const projects = [
-  {
-    title: 'MarketSeer Stock Predictor',
-    description:
-      'A full-stack stock analysis and prediction platform built with React, TypeScript, and FastAPI. Features real-time stock data visualization, portfolio tracking, and machine learning market predictions. Includes interactive charts and responsive design. Built using Plotly.js for data visualization and Finnhub/yFinance API for real-time stock data. Planned: add news-based Natural Language Processing.',
-    github: 'https://github.com/andryuxiong/marketseer',
-    demo: 'https://market-seer.vercel.app/', 
-    image: marketseerImg,
-    techStack: ['React', 'TypeScript', 'FastAPI', 'TensorFlow', 'Scikit-learn', 'PostgreSQL', 'Pandas', 'Plotly.js'],
-    date: '2025'
-  },
-  {
-    title: 'AI Medicare Assistant',
-    description:
-      'A full-stack AI-powered healthcare assistant that helps users understand their symptoms and navigate medical recommendations. Features real-time symptom analysis, personalized medical recommendations, and voice interaction. Built with React, Java Spring Boot, and OpenAI API for an intuitive user experience.',
-    github: 'https://github.com/andryuxiong/medicare-ai',
-    demo: 'https://medicare-ai-three.vercel.app/',
-    image: medicareLogo,
-    techStack: ['React', 'Java', 'Spring Boot', 'OpenAI API', 'Spring WebFlux', 'Bucket4j'],
-    date: '2024'
-  },
-  {
-    title: 'Personal Portfolio Website',
-    description:
-      'A modern, responsive portfolio website showcasing my projects, experience, and skills. Features a clean, interactive design with smooth animations, dark/light mode, and a mobile-first approach. Built with React and Chakra UI, demonstrating frontend development skills and attention to user experience.',
-    github: 'https://github.com/andryuxiong/portfolio',
-    demo: '', // the demo is this website
-    image: portfolioScreenshot,
-    techStack: ['React', 'Chakra UI', 'Framer Motion', 'JavaScript', 'React Router', 'EmailJS'],
-    date: '2025'
-  },
-  {
-    title: '2D Platformer Game',
-    description:
-      'A Mario-inspired platformer built in Java using Swing and AWT, featuring custom physics, sprite animation, and level design. Performance optimizations and unique enhancements.',
-    github: 'https://github.com/andryuxiong/2D-Platform-Game',
-    demo: '', // Placeholder for now
-    image: placeholderImg,
-    techStack: ['Java', 'Swing', 'AWT', 'Game Physics'],
-    date: '2023'
-  },
-  {
-    title: 'Labubu Bot',
-    description:
-      'An automated bot built with Python and Selenium for monitoring and purchasing limited-edition Pop Mart collectibles. Features real-time availability checking, automatic cart addition, Discord notifications, and anti-detection measures. Implements human-like behavior patterns and robust error handling.',
-    github: 'https://github.com/andryuxiong/labububot',
-    demo: '', // No demo available as it's a bot
-    image: labubuBotImg,
-    techStack: ['Python', 'Selenium', 'Discord Webhook', 'Web Automation', 'BeautifulSoup'],
-    date: '2025'
-  },
-];
 
 const Projects = () => {
   const bgColor = useColorModeValue('linear(to-br, #e0eafc, #cfdef3)', 'linear(to-br, #232526, #414345)');
@@ -113,7 +55,7 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Explore my portfolio of my technical projects!
+            Selected full-stack, AI, machine-learning, and automation work.
           </MotionText>
 
           <Divider 

@@ -1,5 +1,5 @@
 import { Box, Heading, Text, HStack, Link, VStack, Image, useColorModeValue, Tag, TagLabel, Flex, Badge, Icon, Tooltip } from '@chakra-ui/react';
-import { FaLink, FaGithub, FaCode, FaStar, FaCalendarAlt } from 'react-icons/fa';
+import { FaLink, FaGithub, FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const placeholderImg = 'https://via.placeholder.com/400x180?text=Project+Image';

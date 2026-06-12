@@ -4,8 +4,6 @@ import {
     Text,
     Container,
     VStack,
-    HStack,
-    Image,
   useColorModeValue,
   Flex,
   Badge,
@@ -57,9 +55,6 @@ import {
   const Experience = () => {
   const textColor = useColorModeValue('minimal.text.light', 'minimal.text.dark');
   const accentColor = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
-  const cardBg = useColorModeValue('white', 'gray.900');
-  const cardBorder = useColorModeValue('gray.200', 'gray.700');
-
     return (
       <Box id="experience" py={20}>
         <Container maxW="container.md">

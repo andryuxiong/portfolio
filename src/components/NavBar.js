@@ -17,7 +17,7 @@ import {
   import { Link as ScrollLink } from 'react-scroll';
   import { Link as RouterLink } from 'react-router-dom';
   
-  const dashboardLinks = ['Projects', 'Contact'];
+  const dashboardLinks = ['Projects', 'Ask Andrew', 'Contact'];
   
   const MotionLink = motion(ChakraLink);
   const MotionBox = motion(Box);
@@ -26,7 +26,9 @@ import {
   const NavLink = ({ children, to = '/', isScroll = false }) =>
     isScroll ? (
       <ScrollLink to={to} smooth={true} duration={500}>
-        <MotionLink
+        <MotionBox
+          as="span"
+          display="block"
           px={4}
           py={2}
           rounded="md"
@@ -45,7 +47,7 @@ import {
           }}
         >
           {children}
-        </MotionLink>
+        </MotionBox>
       </ScrollLink>
     ) : (
       <MotionLink
@@ -148,7 +150,7 @@ import {
                     {link}
                   </NavLink>
                 ) : (
-                  <NavLink key={link} to={`/${link.toLowerCase()}`}>
+                  <NavLink key={link} to={`/${link.toLowerCase().replace(' ', '-')}`}>
                     {link}
                   </NavLink>
                 )
@@ -174,19 +176,28 @@ import {
           {isOpen && (
             <Box pb={4} display={{ md: 'none' }}>
               <Stack as="nav" spacing={4}>
-                <NavLink to="https://drive.google.com/file/d/1U6rmfZ1_i4wypW7DAFumhqrY853p4E67/view?usp=sharing">
+                <ChakraLink
+                  href="https://drive.google.com/file/d/1U6rmfZ1_i4wypW7DAFumhqrY853p4E67/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  px={4}
+                  py={2}
+                  rounded="md"
+                  fontWeight="semibold"
+                  _hover={{ textDecoration: 'none', bg: 'minimal.accent', color: 'white' }}
+                >
                   <HStack spacing={2}>
                     <FiFileText size={18} />
                     <span>Resume</span>
                   </HStack>
-                </NavLink>
+                </ChakraLink>
                 {dashboardLinks.map((link) =>
                   link === 'Contact' ? (
                     <NavLink key={link} to="footer" isScroll>
                       {link}
                     </NavLink>
                   ) : (
-                    <NavLink key={link} to={`/${link.toLowerCase()}`}>
+                    <NavLink key={link} to={`/${link.toLowerCase().replace(' ', '-')}`}>
                       {link}
                     </NavLink>
                   )
@@ -199,4 +210,3 @@ import {
       </Box>
     );
   }
-  

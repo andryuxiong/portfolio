@@ -87,7 +87,7 @@ const RelevantWorkExperience = () => {
               contentArrowStyle={{ 
                 borderRight: `7px solid ${contentBorderColor}`
               }}
-              date="June 2025 – August 2025 | Minneapolis, MN"
+              date="May 2025 - August 2025 | Minneapolis, MN"
               dateStyle={{
                 color: dateTextColor,
                 fontWeight: '600'
@@ -140,7 +140,7 @@ const RelevantWorkExperience = () => {
                 
                 <HStack spacing={2} flexWrap="wrap" mb={2}>
                   {[
-                    'Python', 'AI/ML', 'NLP', 'LLMs', 'Data Pipelines'
+                    'Python', 'FastAPI', 'React', 'RAG', 'LLMs', 'Data Pipelines'
                   ].map((tech, idx) => (
                     <MotionBox
                       key={idx}
@@ -169,16 +169,13 @@ const RelevantWorkExperience = () => {
                 </HStack>
                 
                 <Text mb={3} color={contentTextColor}>
-                  🛠️ Engineered RAG and graph database solutions for real-time, complex Q&A on semiconductor datasheets and process designkits, boosting information retrieval accuracy by 90% and streamlining engineering workflows.
+                  Developed and deployed internal AI applications used by engineering and marketing teams to analyze semiconductor data and convert technical datasheets into accessible product content.
                 </Text>
                 <Text mb={3} color={contentTextColor}>
-                  🤖 Fine-tuned and benchmarked Large Language Models (LLMs) (LaMa, Qwen, Mixtral), optimizing token efficiency and inference speed for production use cases.
+                  Engineered a RAG and graph-based system for querying semiconductor datasheets, PDKs, and Liberty files, iteratively validating parsed and retrieved results against source documents.
                 </Text>
                 <Text mb={3} color={contentTextColor}>
-                  ⚙️ Built automated data pipelines for document reprocessing and tagging, reducing manual workload and enabling efficient LLM ingestion.
-                </Text>
-                <Text mb={3} color={contentTextColor}>
-                  🗂️ Developed a domain-adapted LLM tool to extract and generate key data from Liberty (.lib) files, allowing engineers to query design specifications and critical information—reducing reliance on expensive EDA tools and accelerating chip design processes.
+                  Deployed local LLM inference workflows using Qwen, Mixtral, vLLM, llama.cpp, and NVIDIA GPUs to support document-grounded queries and content generation.
                 </Text>
               </Box>
             </VerticalTimelineElement>
@@ -189,4 +186,4 @@ const RelevantWorkExperience = () => {
   );
 };
 
-export default RelevantWorkExperience; 
+export default RelevantWorkExperience;
