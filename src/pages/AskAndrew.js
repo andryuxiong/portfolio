@@ -1,207 +1,133 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import {
-  Alert,
-  AlertIcon,
   Box,
   Button,
   Container,
-  Flex,
   Heading,
-  HStack,
-  Spinner,
+  SimpleGrid,
   Text,
-  Textarea,
   VStack,
-  Wrap,
-  WrapItem,
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const suggestions = [
-  'What did Andrew build during his internship?',
-  'Tell me about the semiconductor timing workbench.',
-  'What is Andrew strongest at technically?',
-  'What kind of role is Andrew looking for?',
-  'How can I contact Andrew?',
+const questions = [
+  {
+    question: 'What did Andrew build during his internship?',
+    answer:
+      'Andrew built internal AI applications for engineering and marketing teams at Trusted Semiconductor Solutions. His work included a Liberty timing intelligence workbench for semiconductor engineers and DataBriefPilot, a local desktop application that transformed technical datasheets into structured marketing content.',
+  },
+  {
+    question: 'Tell me about the timing workbench.',
+    answer:
+      'The Semiconductor Timing Intelligence Workbench parses and compares Liberty timing libraries. It exposes cells, pins, timing arcs, setup and hold constraints, internal power, leakage, buses, PVT corner metadata, and source provenance through a FastAPI backend and React interface.',
+  },
+  {
+    question: 'What is DataBriefPilot?',
+    answer:
+      'DataBriefPilot is an Electron and React/TypeScript desktop application built for a semiconductor marketing team. It uses FastAPI, local Mixtral inference through llama.cpp, RAG, PyMuPDF, OpenCV, LaTeX/SVG generation, PDF previews, and Windows packaging.',
+  },
+  {
+    question: 'What is Andrew strongest at technically?',
+    answer:
+      'Andrew is strongest at connecting frontend, backend, and AI components into practical applications. His primary tools include Python, Java, React, FastAPI, Spring Boot, RAG pipelines, local LLM inference, REST APIs, and document-processing workflows.',
+  },
+  {
+    question: 'What kind of role is Andrew looking for?',
+    answer:
+      'Andrew is seeking new-grad software engineering opportunities, particularly full-stack, backend, and AI application roles where he can build useful products and work across multiple parts of a system.',
+  },
+  {
+    question: "What is Andrew's education?",
+    answer:
+      "Andrew earned a Bachelor of Science in Computer Science from Metropolitan State University in May 2026 with a 3.54 GPA. He also earned an Associate of Science in Computer Science from Century College in May 2024 and made the Dean's List.",
+  },
+  {
+    question: 'How can I contact Andrew?',
+    answer:
+      'Email Andrew at xiongandrew02@gmail.com or connect with him on LinkedIn at linkedin.com/in/andrew-xiong02. His code is available at github.com/andryuxiong.',
+  },
 ];
 
-const initialMessage = {
-  role: 'assistant',
-  content:
-    "Hi, I'm Andrew's portfolio assistant. Ask me about his experience, projects, technical skills, education, or current job search.",
-};
-
 function AskAndrew() {
-  const [messages, setMessages] = useState([initialMessage]);
-  const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const panelBg = useColorModeValue('white', 'gray.900');
-  const userBg = useColorModeValue('black', 'white');
-  const userColor = useColorModeValue('white', 'black');
-  const assistantBg = useColorModeValue('gray.100', 'gray.800');
+  const selectedBg = useColorModeValue('black', 'white');
+  const selectedColor = useColorModeValue('white', 'black');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const mutedColor = useColorModeValue('gray.600', 'gray.300');
-
-  const conversation = useMemo(
-    () => messages.filter((message) => message !== initialMessage).slice(-10),
-    [messages]
-  );
-
-  async function submitQuestion(question) {
-    const trimmed = question.trim();
-    if (!trimmed || loading) return;
-
-    const nextMessages = [...conversation, { role: 'user', content: trimmed }];
-    setMessages((current) => [...current, { role: 'user', content: trimmed }]);
-    setInput('');
-    setError('');
-    setLoading(true);
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: nextMessages }),
-      });
-      const payload = await response.json();
-
-      if (!response.ok) {
-        throw new Error(payload.error || 'The assistant is unavailable right now.');
-      }
-
-      setMessages((current) => [
-        ...current,
-        { role: 'assistant', content: payload.message },
-      ]);
-    } catch (requestError) {
-      setError(requestError.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    submitQuestion(input);
-  }
+  const hoverBg = useColorModeValue('gray.100', 'gray.800');
+  const selected = questions[selectedIndex];
 
   return (
     <Box minH="100vh" pt="100px" pb={16}>
-      <Container maxW="container.md">
-        <VStack spacing={6} align="stretch">
+      <Container maxW="container.lg">
+        <VStack spacing={8} align="stretch">
           <Box textAlign="center">
             <Heading as="h1" size="2xl" mb={3}>
               Ask Andrew
             </Heading>
-            <Text color={mutedColor}>
-              A recruiter-focused AI assistant grounded in Andrew's current resume and project history.
+            <Text color={mutedColor} maxW="650px" mx="auto">
+              Quick, verified answers for recruiters and visitors. Choose a question to learn
+              about Andrew's experience, projects, skills, and job search.
             </Text>
           </Box>
 
-          <Wrap justify="center">
-            {suggestions.map((suggestion) => (
-              <WrapItem key={suggestion}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
+            <VStack align="stretch" spacing={3}>
+              {questions.map((item, index) => (
                 <Button
-                  size="sm"
-                  variant="outline"
-                  borderRadius="full"
-                  onClick={() => submitQuestion(suggestion)}
-                  isDisabled={loading}
-                >
-                  {suggestion}
-                </Button>
-              </WrapItem>
-            ))}
-          </Wrap>
-
-          <VStack
-            align="stretch"
-            spacing={4}
-            bg={panelBg}
-            border="1px solid"
-            borderColor={borderColor}
-            borderRadius="2xl"
-            p={{ base: 4, md: 6 }}
-            minH="430px"
-            boxShadow="lg"
-          >
-            {messages.map((message, index) => (
-              <Flex
-                key={`${message.role}-${index}`}
-                justify={message.role === 'user' ? 'flex-end' : 'flex-start'}
-              >
-                <Box
-                  maxW="85%"
-                  bg={message.role === 'user' ? userBg : assistantBg}
-                  color={message.role === 'user' ? userColor : 'inherit'}
-                  px={4}
+                  key={item.question}
+                  height="auto"
+                  minH="52px"
                   py={3}
-                  borderRadius="xl"
-                  whiteSpace="pre-wrap"
-                >
-                  <Text fontSize="sm" fontWeight="bold" mb={1}>
-                    {message.role === 'user' ? 'You' : 'Andrew AI'}
-                  </Text>
-                  <Text>{message.content}</Text>
-                </Box>
-              </Flex>
-            ))}
-
-            {loading && (
-              <HStack color={mutedColor}>
-                <Spinner size="sm" />
-                <Text>Thinking...</Text>
-              </HStack>
-            )}
-          </VStack>
-
-          {error && (
-            <Alert status="error" borderRadius="lg">
-              <AlertIcon />
-              {error}
-            </Alert>
-          )}
-
-          <Box as="form" onSubmit={handleSubmit}>
-            <VStack align="stretch">
-              <Textarea
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder="Ask about Andrew's experience, projects, or skills..."
-                maxLength={800}
-                resize="vertical"
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && !event.shiftKey) {
-                    event.preventDefault();
-                    handleSubmit(event);
-                  }
-                }}
-              />
-              <HStack justify="space-between">
-                <Button
-                  variant="ghost"
-                  onClick={() => {
-                    setMessages([initialMessage]);
-                    setError('');
+                  px={4}
+                  justifyContent="flex-start"
+                  textAlign="left"
+                  whiteSpace="normal"
+                  variant={selectedIndex === index ? 'solid' : 'outline'}
+                  bg={selectedIndex === index ? selectedBg : 'transparent'}
+                  color={selectedIndex === index ? selectedColor : 'inherit'}
+                  borderColor={borderColor}
+                  onClick={() => setSelectedIndex(index)}
+                  _hover={{
+                    bg: selectedIndex === index ? selectedBg : hoverBg,
                   }}
                 >
-                  Clear
+                  {item.question}
                 </Button>
-                <Button
-                  type="submit"
-                  colorScheme="blackAlpha"
-                  isLoading={loading}
-                  isDisabled={!input.trim()}
-                >
-                  Send
-                </Button>
-              </HStack>
+              ))}
             </VStack>
-          </Box>
 
-          <Text fontSize="xs" textAlign="center" color="gray.500">
-            AI-generated answers may be imperfect. Use the resume and project links for authoritative details.
+            <Box
+              bg={panelBg}
+              border="1px solid"
+              borderColor={borderColor}
+              borderRadius="2xl"
+              p={{ base: 6, md: 8 }}
+              boxShadow="lg"
+              minH="300px"
+            >
+              <Text
+                fontSize="xs"
+                fontWeight="bold"
+                letterSpacing="widest"
+                textTransform="uppercase"
+                color={mutedColor}
+                mb={3}
+              >
+                Answer
+              </Text>
+              <Heading as="h2" size="lg" mb={5}>
+                {selected.question}
+              </Heading>
+              <Text fontSize="lg" lineHeight="1.8">
+                {selected.answer}
+              </Text>
+            </Box>
+          </SimpleGrid>
+
+          <Text fontSize="sm" textAlign="center" color={mutedColor}>
+            These answers are curated from Andrew's current resume and project history.
           </Text>
         </VStack>
       </Container>

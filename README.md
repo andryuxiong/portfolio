@@ -7,7 +7,7 @@ Personal portfolio for Andrew Xiong, a software engineer and computer science gr
 - Light and dark mode support
 - Animated project cards with live demo and GitHub links
 - Current resume, internship experience, skills, and project pages
-- Personalized Ask Andrew assistant backed by a Vercel serverless function
+- Interactive Ask Andrew recruiter FAQ with verified answers
 
 ## 🛠️ Tech Stack
 - React.js
@@ -27,20 +27,9 @@ Personal portfolio for Andrew Xiong, a software engineer and computer science gr
 ## 📄 Resume
 My current resume is available through the Resume link in the site navigation.
 
-## Ask Andrew Configuration
+## Ask Andrew
 
-The frontend calls `POST /api/chat`. Configure one provider in Vercel:
-
-```text
-OPENAI_API_KEY=...
-# or
-OPENROUTER_API_KEY=...
-
-AI_MODEL=...
-ANDREW_SYSTEM_PROMPT=...
-```
-
-`AI_MODEL` and `ANDREW_SYSTEM_PROMPT` are optional. The API includes a public-profile fallback prompt, while provider credentials remain server-side.
+The Ask Andrew page currently uses curated answers, so it has no API key, usage cost, or model-security requirements. Its question-and-answer structure can be upgraded to a server-backed AI assistant later.
 
 ## 📝 How to Run Locally
 ```bash

@@ -44,7 +44,7 @@ const projects = [
   {
     title: 'Personal Portfolio Website',
     description:
-      'A responsive developer portfolio with accessible light and dark themes, animated project presentation, a downloadable resume, and a personalized AI assistant.',
+      'A responsive developer portfolio with accessible light and dark themes, animated project presentation, a current resume, and an interactive recruiter FAQ.',
     github: 'https://github.com/andryuxiong/portfolio',
     demo: 'https://iamandrew.dev/',
     image: portfolioScreenshot,
