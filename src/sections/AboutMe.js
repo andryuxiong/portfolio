@@ -18,12 +18,11 @@ const AboutMe = () => {
           </Heading>
 
           <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="medium" lineHeight="1.8">
-            Hi, I'm Andrew Xiong, a computer science graduate and software engineer focused on full-stack and AI-enabled applications.
-            I specialize in full-stack development and AI integration, with a focus on creating intuitive, user-friendly applications. 
-            My recent work includes developing an AI-powered healthcare assistant using OpenAI GPT-4, showcasing my ability to combine 
-            modern web technologies with cutting-edge AI capabilities. I'm passionate about building robust, scalable applications 
-            and leveraging technology to solve real-world problems. My experience spans software development, AI integration, 
-            and cloud deployment, and I'm always eager to learn new technologies and contribute to innovative solutions.
+            Hi, I'm Andrew Xiong, a computer science graduate and software engineer focused on full-stack systems and applied AI.
+            I enjoy building the entire path from a usable interface to APIs, data models, retrieval workflows, and evaluation evidence.
+            My recent projects include a reproducible RAG evaluation platform, a provenance-aware commerce intelligence system, and a
+            privacy-minded mobile coordination app. I also built internal semiconductor data and document tools during my internship at
+            Trusted Semiconductor Solutions.
           </Text>
         </VStack>
         <Skills />

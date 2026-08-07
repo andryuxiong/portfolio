@@ -22,11 +22,16 @@ window.IntersectionObserver = IntersectionObserverMock;
 global.IntersectionObserver = IntersectionObserverMock;
 
 test('renders the current portfolio introduction', () => {
-  render(
+  const { container } = render(
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   );
   expect(screen.getByRole('heading', { name: 'Andrew Xiong' })).toBeTruthy();
   expect(screen.getByText(/computer science graduate and software engineer/i)).toBeTruthy();
+  expect(screen.getByRole('heading', { name: 'RAG Evaluation Platform' })).toBeTruthy();
+  expect(screen.getByRole('heading', { name: 'Northstar Commerce Intelligence' })).toBeTruthy();
+  expect(screen.getByRole('heading', { name: 'Around Social Availability App' })).toBeTruthy();
+
+  expect(container.querySelector('a[href="/Andrew-Xiong-Resume.pdf"]')).toBeTruthy();
 });

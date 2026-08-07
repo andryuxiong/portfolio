@@ -117,7 +117,7 @@ import {
             {/* Nav links (desktop) */}
             <HStack spacing={4} alignItems="center" display={{ base: 'none', md: 'flex' }}>
               <MotionLink
-                href="https://drive.google.com/file/d/1U6rmfZ1_i4wypW7DAFumhqrY853p4E67/view?usp=sharing"
+                href="/Andrew-Xiong-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 px={4}
@@ -177,7 +177,7 @@ import {
             <Box pb={4} display={{ md: 'none' }}>
               <Stack as="nav" spacing={4}>
                 <ChakraLink
-                  href="https://drive.google.com/file/d/1U6rmfZ1_i4wypW7DAFumhqrY853p4E67/view?usp=sharing"
+                  href="/Andrew-Xiong-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   px={4}

@@ -55,7 +55,8 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Selected full-stack, AI, machine-learning, and automation work.
+            Selected systems spanning RAG evaluation, full-stack product engineering,
+            mobile infrastructure, data ingestion, and applied machine learning.
           </MotionText>
 
           <Divider 
@@ -65,8 +66,7 @@ const Projects = () => {
             mb={4}
           />
 
-          {/* Responsive two-column grid layout */}
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={1} w="100%" align="stretch" justifyItems="center" maxW="820px" mx="auto">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={7} w="100%" align="stretch">
             {projects.map((project, index) => (
               <MotionBox
                 key={project.title}
@@ -74,9 +74,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                whileHover={{ scale: 1.03 }}
                 w="100%"
-                maxW="400px"
                 h="100%"
               >
                 <ProjectCard {...project} location="projects" />

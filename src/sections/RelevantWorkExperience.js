@@ -132,7 +132,7 @@ const RelevantWorkExperience = () => {
                   color={contentTextColor}
                   letterSpacing="tight"
                 >
-                  AI Software Engineering Intern
+                  AI Software Engineer Intern
                 </Heading>
                 
                 <HStack spacing={3} mb={2} mt={0} flexWrap="wrap">
@@ -140,7 +140,7 @@ const RelevantWorkExperience = () => {
                 
                 <HStack spacing={2} flexWrap="wrap" mb={2}>
                   {[
-                    'Python', 'FastAPI', 'React', 'RAG', 'LLMs', 'Data Pipelines'
+                    'Python', 'FastAPI', 'React', 'RAG', 'Graph Data', 'Local LLMs'
                   ].map((tech, idx) => (
                     <MotionBox
                       key={idx}
@@ -169,13 +169,13 @@ const RelevantWorkExperience = () => {
                 </HStack>
                 
                 <Text mb={3} color={contentTextColor}>
-                  Developed and deployed internal AI applications used by engineering and marketing teams to analyze semiconductor data and convert technical datasheets into accessible product content.
+                  Engineered an internal RAG and graph-data system for querying semiconductor datasheets and process design kits, enabling document-grounded answers for engineering workflows.
                 </Text>
                 <Text mb={3} color={contentTextColor}>
-                  Engineered a RAG and graph-based system for querying semiconductor datasheets, PDKs, and Liberty files, iteratively validating parsed and retrieved results against source documents.
+                  Built preprocessing, chunking, and semantic-tagging pipelines for Liberty files so engineers could query design specifications through natural language.
                 </Text>
                 <Text mb={3} color={contentTextColor}>
-                  Deployed local LLM inference workflows using Qwen, Mixtral, vLLM, llama.cpp, and NVIDIA GPUs to support document-grounded queries and content generation.
+                  Developed React and FastAPI applications that extracted text and images from technical documents, retrieved contextual chunks, streamed local Mixtral responses, and generated editable LaTeX, SVG, and PDF content.
                 </Text>
               </Box>
             </VerticalTimelineElement>
