@@ -18,7 +18,6 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import personalPhoto from '../components/personalphoto.PNG';
 
-import Experience from '../sections/Experience';
 import Skills from '../sections/Skills';
 import ProjectCard from '../components/ProjectCard';
 import RelevantWorkExperience from '../sections/RelevantWorkExperience';
@@ -150,9 +149,9 @@ function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               textShadow="0 0 10px rgba(0,0,0,0.1)"
             >
-              I'm a computer science graduate and software engineer focused on full-stack and AI-enabled applications. During my internship at Trusted Semiconductor Solutions, I built internal tools for engineering and marketing teams working with semiconductor data.
+              I'm a computer science graduate and software engineer focused on full-stack systems, applied AI, and evidence-driven product development. At Trusted Semiconductor Solutions, I built internal tools for engineers and marketers working with dense semiconductor data.
               <br /><br />
-              I enjoy turning complex workflows into practical software, from deterministic Liberty timing analysis to local LLM-powered document processing. I'm currently exploring new-grad software engineering opportunities.
+              My recent work includes a reproducible RAG evaluation platform, a provenance-aware commerce intelligence system, and a privacy-minded social planning app. I'm currently exploring new-grad software engineering opportunities.
             </MotionText>
 
             {/* Social Links */}
@@ -219,7 +218,7 @@ function Home() {
       </Container>
 
       <RelevantWorkExperience />
-      <Container maxW="container.md" px={3} py={10} position="relative" zIndex="3">
+      <Container maxW="1200px" px={{ base: 5, md: 8 }} py={14} position="relative" zIndex="3">
         <VStack spacing={8} w="100%">
           <MotionHeading
             as="h2"
@@ -244,7 +243,7 @@ function Home() {
           >
             Featured Projects
           </MotionHeading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="100%">
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={7} w="100%" alignItems="stretch">
             {featuredProjects.map((project, index) => (
               <MotionBox
                 key={project.title}
@@ -264,7 +263,6 @@ function Home() {
         </VStack>
       </Container>
       <Skills />
-      <Experience />
       <Contact />
     </Box>
   );

@@ -1,189 +1,171 @@
-import { Box, Heading, Text, HStack, Link, VStack, Image, useColorModeValue, Tag, TagLabel, Flex, Badge, Icon, Tooltip } from '@chakra-ui/react';
-import { FaLink, FaGithub, FaCalendarAlt } from 'react-icons/fa';
+import {
+  Badge,
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  Icon,
+  Image,
+  Link,
+  ListItem,
+  Tag,
+  TagLabel,
+  Text,
+  UnorderedList,
+  useColorModeValue,
+  VStack,
+} from '@chakra-ui/react';
+import { FaArrowUpRightFromSquare, FaGithub } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 
-const placeholderImg = 'https://via.placeholder.com/400x180?text=Project+Image';
-
-// Create motion components with proper typing
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
-const ProjectCard = ({ title, description, github, demo, image, techStack = [], date = '2024' }) => {
+const ProjectCard = ({
+  title,
+  context,
+  description,
+  highlights = [],
+  github,
+  demo,
+  image,
+  imageFit = 'cover',
+  techStack = [],
+  date = '2026',
+}) => {
   const cardBg = useColorModeValue('white', 'gray.900');
-  const textColor = useColorModeValue('minimal.secondary.light', 'minimal.secondary.dark');
-  const iconColor = useColorModeValue('minimal.accent', 'minimal.text.dark');
-  const tagBg = useColorModeValue('minimal.accent', 'minimal.secondary.dark');
-  
-  // Pre-define all color values to avoid calling hooks inside callbacks
-  const cardShadow = useColorModeValue(
-    '0 4px 20px rgba(0,0,0,0.08)', 
-    '0 4px 20px rgba(255,255,255,0.02)'
-  );
-  const imageShadow = useColorModeValue(
-    '0 8px 25px rgba(0,0,0,0.1)', 
-    '0 8px 25px rgba(255,255,255,0.02)'
-  );
-  const badgeBg = useColorModeValue('rgba(255,255,255,0.95)', 'rgba(0,0,0,0.8)');
-  const badgeColor = useColorModeValue('#000000', '#ffffff');
-  const tagHoverShadow = useColorModeValue(
-    '0 4px 12px rgba(0,0,0,0.15)', 
-    '0 4px 12px rgba(255,255,255,0.1)'
-  );
-  const buttonBg = useColorModeValue('rgba(0,0,0,0.05)', 'rgba(255,255,255,0.05)');
-  const buttonBorder = useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)');
-  const buttonHoverBg = useColorModeValue('rgba(0,0,0,0.08)', 'rgba(255,255,255,0.08)');
-  const buttonHoverBorder = useColorModeValue('rgba(0,0,0,0.2)', 'rgba(255,255,255,0.2)');
+  const textColor = useColorModeValue('gray.700', 'gray.300');
+  const mutedColor = useColorModeValue('gray.600', 'gray.400');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const mediaBg = useColorModeValue('gray.100', 'gray.800');
+  const tagBg = useColorModeValue('gray.100', 'gray.800');
+  const buttonBg = useColorModeValue('black', 'white');
+  const buttonColor = useColorModeValue('white', 'black');
 
   return (
     <MotionBox
-      whileHover={{ y: -2, scale: 1.01 }}
+      whileHover={{ y: -5 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
       bg={cardBg}
-      borderRadius="xl"
-      boxShadow={cardShadow}
+      border="1px solid"
+      borderColor={borderColor}
+      borderRadius="2xl"
+      boxShadow="0 18px 50px rgba(0, 0, 0, 0.08)"
       w="100%"
-      minH="220px"
-      mb={4}
-      p={5}
-      position="relative"
+      h="100%"
       overflow="hidden"
     >
-      <VStack align="center" spacing={2} w="100%">
-        <Box position="relative" w="100%" display="flex" justifyContent="center" mb={3}>
+      <Box h="190px" bg={mediaBg} overflow="hidden" position="relative">
+        {image ? (
           <MotionImage
-            src={image || placeholderImg}
-            alt={title + ' image'}
-            borderRadius="xl"
+            src={image}
+            alt={`${title} preview`}
             w="100%"
-            maxW="340px"
-            maxH="140px"
-            objectFit="cover"
-            boxShadow={imageShadow}
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
+            h="100%"
+            objectFit={imageFit}
+            p={imageFit === 'contain' ? 5 : 0}
+            whileHover={{ scale: 1.025 }}
+            transition={{ duration: 0.35 }}
           />
-          <Badge
-            position="absolute"
-            top={3}
-            right={3}
-            bg={badgeBg}
-            color={badgeColor}
-            variant="solid"
-            px={3}
-            py={1}
-            borderRadius="full"
-            fontSize="0.75em"
-            fontWeight="600"
-            display="flex"
-            alignItems="center"
-            gap={1}
+        ) : (
+          <Flex
+            h="100%"
+            align="center"
+            justify="center"
+            bgGradient="linear(to-br, gray.900, gray.700)"
+            color="white"
           >
-            <Icon as={FaCalendarAlt} />
-            {date}
-          </Badge>
+            <Text fontSize="5xl" fontWeight="black" letterSpacing="tight">
+              {title
+                .split(' ')
+                .slice(0, 2)
+                .map((word) => word[0])
+                .join('')}
+            </Text>
+          </Flex>
+        )}
+        <Badge
+          position="absolute"
+          top={4}
+          right={4}
+          bg={cardBg}
+          color="inherit"
+          px={3}
+          py={1}
+          borderRadius="full"
+          boxShadow="sm"
+        >
+          {date}
+        </Badge>
+      </Box>
+
+      <VStack align="stretch" spacing={4} p={6}>
+        <Box>
+          <Text
+            color={mutedColor}
+            fontSize="xs"
+            fontWeight="bold"
+            letterSpacing="widest"
+            textTransform="uppercase"
+            mb={2}
+          >
+            {context}
+          </Text>
+          <Heading as="h3" size="lg" letterSpacing="tight">
+            {title}
+          </Heading>
         </Box>
-        
-        <Heading
-          as="h4"
-          size="lg"
-          color={iconColor}
-          fontWeight="600"
-          textAlign="center"
-          letterSpacing="tight"
-          mb={3}
-        >
-          {title}
-        </Heading>
-        
-        <Text 
-          color={textColor} 
-          fontSize="md" 
-          lineHeight="relaxed" 
-          textAlign="center"
-          mb={4}
-        >
+
+        <Text color={textColor} lineHeight="1.7">
           {description}
         </Text>
 
-        <Flex wrap="wrap" gap={2} justify="center" mb={4}>
+        {highlights.length > 0 && (
+          <UnorderedList spacing={2} pl={1} color={textColor} fontSize="sm">
+            {highlights.map((highlight) => (
+              <ListItem key={highlight}>{highlight}</ListItem>
+            ))}
+          </UnorderedList>
+        )}
+
+        <Flex wrap="wrap" gap={2}>
           {techStack.map((tech) => (
-            <Tooltip key={tech} label={`Built with ${tech}`} placement="top" hasArrow>
-              <Tag
-                size="md"
-                borderRadius="full"
-                variant="solid"
-                bg={tagBg}
-                color="white"
-                fontWeight="500"
-                letterSpacing="wide"
-                px={3}
-                py={1}
-                cursor="pointer"
-                transition="all 0.2s"
-                _hover={{ 
-                  transform: 'translateY(-1px)',
-                  boxShadow: tagHoverShadow
-                }}
-              >
-                <TagLabel>{tech}</TagLabel>
-              </Tag>
-            </Tooltip>
+            <Tag key={tech} size="sm" borderRadius="full" bg={tagBg} px={3} py={1}>
+              <TagLabel>{tech}</TagLabel>
+            </Tag>
           ))}
         </Flex>
 
-        <HStack spacing={4} w="100%" justify="center">
-          {github && (
-            <Link href={github} isExternal _hover={{ textDecoration: 'none' }}>
-              <Box
-                bg={buttonBg}
-                px={4}
-                py={2}
-                borderRadius="full"
-                display="flex"
-                alignItems="center"
-                gap={2}
-                border="1px solid"
-                borderColor={buttonBorder}
-                cursor="pointer"
-                transition="all 0.2s"
-                _hover={{
-                  backgroundColor: buttonHoverBg,
-                  borderColor: buttonHoverBorder
-                }}
-              >
-                <Icon as={FaGithub} color={iconColor} boxSize={4} />
-                <Text fontSize="sm" color={iconColor} fontWeight="500">GitHub</Text>
-              </Box>
-            </Link>
-          )}
-          {demo && (
-            <Link href={demo} isExternal _hover={{ textDecoration: 'none' }}>
-              <Box
-                bg={buttonBg}
-                px={4}
-                py={2}
-                borderRadius="full"
-                display="flex"
-                alignItems="center"
-                gap={2}
-                border="1px solid"
-                borderColor={buttonBorder}
-                cursor="pointer"
-                transition="all 0.2s"
-                _hover={{
-                  backgroundColor: buttonHoverBg,
-                  borderColor: buttonHoverBorder
-                }}
-              >
-                <Icon as={FaLink} color={iconColor} boxSize={4} />
-                <Text fontSize="sm" color={iconColor} fontWeight="500">Demo</Text>
-              </Box>
-            </Link>
-          )}
-        </HStack>
+        {(github || demo) && (
+          <HStack spacing={3} pt={1}>
+            {github && (
+              <Link href={github} isExternal _hover={{ textDecoration: 'none' }}>
+                <HStack
+                  bg={buttonBg}
+                  color={buttonColor}
+                  px={4}
+                  py={2}
+                  borderRadius="full"
+                  spacing={2}
+                >
+                  <Icon as={FaGithub} />
+                  <Text fontSize="sm" fontWeight="semibold">Source</Text>
+                </HStack>
+              </Link>
+            )}
+            {demo && (
+              <Link href={demo} isExternal _hover={{ textDecoration: 'none' }}>
+                <HStack px={4} py={2} spacing={2}>
+                  <Text fontSize="sm" fontWeight="semibold">Live demo</Text>
+                  <Icon as={FaArrowUpRightFromSquare} boxSize={3} />
+                </HStack>
+              </Link>
+            )}
+          </HStack>
+        )}
       </VStack>
     </MotionBox>
   );
