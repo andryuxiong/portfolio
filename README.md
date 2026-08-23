@@ -19,7 +19,7 @@ Personal portfolio for Andrew Xiong, a software engineer and computer science gr
 
 ## 📂 Project Structure
 - `/src` — Main source code
-- `/public` — Static assets and resume
+- `/public` — Static site assets
 
 ## 🌐 Live Demo
 [Visit the live site](https://iamandrew.dev/)

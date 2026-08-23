@@ -33,5 +33,9 @@ test('renders the current portfolio introduction', () => {
   expect(screen.getByRole('heading', { name: 'Northstar Commerce Intelligence' })).toBeTruthy();
   expect(screen.getByRole('heading', { name: 'Around Social Availability App' })).toBeTruthy();
 
-  expect(container.querySelector('a[href="/Andrew-Xiong-Resume.pdf"]')).toBeTruthy();
+  expect(
+    container.querySelector(
+      'a[href="https://drive.google.com/file/d/1U6rmfZ1_i4wypW7DAFumhqrY853p4E67/view?usp=sharing"]'
+    )
+  ).toBeTruthy();
 });
