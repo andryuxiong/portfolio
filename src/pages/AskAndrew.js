@@ -14,22 +14,27 @@ const questions = [
   {
     question: 'What did Andrew build during his internship?',
     answer:
-      'Andrew built internal AI applications for engineering and marketing teams at Trusted Semiconductor Solutions. His work included a Liberty timing intelligence workbench for semiconductor engineers and DataBriefPilot, a local desktop application that transformed technical datasheets into structured marketing content.',
+      'At Trusted Semiconductor Solutions, Andrew built internal RAG and graph-data workflows for semiconductor documents, preprocessing and semantic-tagging pipelines for Liberty files, and React/FastAPI applications that supported document extraction, local Mixtral responses, and editable technical-marketing content.',
   },
   {
-    question: 'Tell me about the timing workbench.',
+    question: 'What is the RAG Evaluation Platform?',
     answer:
-      'The Semiconductor Timing Intelligence Workbench parses and compares Liberty timing libraries. It exposes cells, pins, timing arcs, setup and hold constraints, internal power, leakage, buses, PVT corner metadata, and source provenance through a FastAPI backend and React interface.',
+      'It is Andrew\'s ICS 499 capstone: a PHP, Python, MySQL, and Chroma research platform that compares semantic retrieval with a keyword baseline. It supports eight provider-free metrics, Gemini judging, RAGAS, human review, and saved evidence for questions, contexts, model settings, evaluator attempts, tokens, and costs.',
   },
   {
-    question: 'What is DataBriefPilot?',
+    question: 'What makes Northstar technically interesting?',
     answer:
-      'DataBriefPilot is an Electron and React/TypeScript desktop application built for a semiconductor marketing team. It uses FastAPI, local Mixtral inference through llama.cpp, RAG, PyMuPDF, OpenCV, LaTeX/SVG generation, PDF previews, and Windows packaging.',
+      'Northstar combines a React/TypeScript interface, FastAPI services, SQLAlchemy, and Alembic with an SSRF-aware public-web crawler. Its estimators return low, central, and high planning ranges with explicit assumptions, provenance, confidence labels, and insufficient-data states instead of presenting guesses as facts.',
+  },
+  {
+    question: 'What did Andrew build with Supabase?',
+    answer:
+      'Around is a React Native and Expo social-planning prototype. Andrew designed Supabase Auth, PostgreSQL/PostGIS, Row-Level Security, Realtime, and Storage workflows for circles, invitations, plans, voting, chat, availability, privacy, and location sharing, including transactional membership lifecycle functions.',
   },
   {
     question: 'What is Andrew strongest at technically?',
     answer:
-      'Andrew is strongest at connecting frontend, backend, and AI components into practical applications. His primary tools include Python, Java, React, FastAPI, Spring Boot, RAG pipelines, local LLM inference, REST APIs, and document-processing workflows.',
+      'Andrew is strongest at connecting frontend, backend, data, and AI components into practical applications. His recent work emphasizes React and TypeScript interfaces, Python/FastAPI services, SQL data modeling, retrieval and evaluation pipelines, provenance, and defensive handling of uncertain or incomplete data.',
   },
   {
     question: 'What kind of role is Andrew looking for?',
@@ -39,7 +44,7 @@ const questions = [
   {
     question: "What is Andrew's education?",
     answer:
-      "Andrew earned a Bachelor of Science in Computer Science from Metropolitan State University in May 2026 with a 3.54 GPA. He also earned an Associate of Science in Computer Science from Century College in May 2024 and made the Dean's List.",
+      "Andrew earned a Bachelor of Science in Computer Science from Metropolitan State University in August 2026 with a 3.54 GPA. He also earned an Associate of Science in Computer Science from Century College in May 2024 and made the Dean's List.",
   },
   {
     question: 'How can I contact Andrew?',

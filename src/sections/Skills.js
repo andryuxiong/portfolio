@@ -12,9 +12,9 @@ const skills = [
       { name: 'React', icon: FaReact },
       { name: 'Next.js', icon: SiNextdotjs },
       { name: 'HTML/CSS', icon: FaHtml5 },
-      { name: 'JavaScript/TS', icon: FaReact },
-      { name: 'Git/GitHub', icon: FaGitAlt },
-      { name: 'REST APIs', icon: FaDatabase },
+      { name: 'TypeScript/JS', icon: FaReact },
+      { name: 'React Native', icon: FaReact },
+      { name: 'Expo', icon: FaReact },
     ],
   },
   {
@@ -26,6 +26,8 @@ const skills = [
       { name: 'FastAPI', icon: SiFastapi },
       { name: 'Spring Boot', icon: SiSpring },
       { name: 'SQL/MySQL', icon: SiMysql },
+      { name: 'PostgreSQL', icon: FaDatabase },
+      { name: 'REST APIs', icon: FaDatabase },
     ],
   },
   {
@@ -35,8 +37,8 @@ const skills = [
       { name: 'LLM Inference', icon: FaRobot },
       { name: 'TensorFlow', icon: SiTensorflow },
       { name: 'Pandas/NumPy', icon: FaPython },
-      { name: 'Pytest', icon: FaPython },
-      { name: 'Data Pipelines', icon: FaDatabase },
+      { name: 'Chroma/MiniLM', icon: FaDatabase },
+      { name: 'Git/GitHub', icon: FaGitAlt },
     ],
   },
 ];

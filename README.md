@@ -7,6 +7,7 @@ Personal portfolio for Andrew Xiong, a software engineer and computer science gr
 - Light and dark mode support
 - Animated project cards with live demo and GitHub links
 - Current resume, internship experience, skills, and project pages
+- Audited project case studies for RAG Evaluation, Northstar, Around, Capitol Pulse, MarketSeer, and Brew Cafe
 - Interactive Ask Andrew recruiter FAQ with verified answers
 
 ## 🛠️ Tech Stack
