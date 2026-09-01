@@ -33,8 +33,8 @@ const theme = extendTheme({
     }),
   },
   fonts: {
-    heading: "Poppins, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif",
-    body: "Poppins, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif",
+    heading: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    body: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   },
 });
 

@@ -17,7 +17,11 @@ import {
   import { Link as ScrollLink } from 'react-scroll';
   import { Link as RouterLink } from 'react-router-dom';
   
-  const dashboardLinks = ['Projects', 'Ask Andrew', 'Contact'];
+  const dashboardLinks = [
+    { label: 'Projects', to: '/projects' },
+    { label: 'About', to: '/about' },
+    { label: 'Contact', to: 'footer', isScroll: true },
+  ];
   
   const MotionLink = motion(ChakraLink);
   const MotionBox = motion(Box);
@@ -144,17 +148,11 @@ import {
                 Resume
               </MotionLink>
   
-              {dashboardLinks.map((link) =>
-                link === 'Contact' ? (
-                  <NavLink key={link} to="footer" isScroll>
-                    {link}
-                  </NavLink>
-                ) : (
-                  <NavLink key={link} to={`/${link.toLowerCase().replace(' ', '-')}`}>
-                    {link}
-                  </NavLink>
-                )
-              )}
+              {dashboardLinks.map(({ label, to, isScroll }) => (
+                <NavLink key={label} to={to} isScroll={isScroll}>
+                  {label}
+                </NavLink>
+              ))}
               <ThemeToggle />
             </HStack>
   
@@ -191,17 +189,11 @@ import {
                     <span>Resume</span>
                   </HStack>
                 </ChakraLink>
-                {dashboardLinks.map((link) =>
-                  link === 'Contact' ? (
-                    <NavLink key={link} to="footer" isScroll>
-                      {link}
-                    </NavLink>
-                  ) : (
-                    <NavLink key={link} to={`/${link.toLowerCase().replace(' ', '-')}`}>
-                      {link}
-                    </NavLink>
-                  )
-                )}
+                {dashboardLinks.map(({ label, to, isScroll }) => (
+                  <NavLink key={label} to={to} isScroll={isScroll}>
+                    {label}
+                  </NavLink>
+                ))}
                 <ThemeToggle />
               </Stack>
             </Box>
