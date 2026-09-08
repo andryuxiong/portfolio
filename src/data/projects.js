@@ -21,6 +21,7 @@ const projects = [
   },
   {
     title: 'Northstar Commerce Intelligence',
+    github: 'https://github.com/andryuxiong/northstar',
     context: 'Personal project',
     description:
       'A full-stack research platform that turns public store and product observations into traceable intelligence reports, investigations, comparisons, and product-economics workflows.',
@@ -49,6 +50,7 @@ const projects = [
   },
   {
     title: 'Capitol Pulse',
+    github: 'https://github.com/andryuxiong/capitol-pulse',
     context: 'Personal research tool',
     description:
       'A local research application for collecting House financial disclosures, reviewing uncertain parses, and studying lag-aware signals through paper backtests.',

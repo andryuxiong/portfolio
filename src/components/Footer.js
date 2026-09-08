@@ -1,4 +1,4 @@
-import { Box, HStack, IconButton, Link, useColorModeValue, Text } from '@chakra-ui/react';
+import { Box, HStack, IconButton, useColorModeValue, Text } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
@@ -8,8 +8,7 @@ const Footer = () => {
     <Box as="footer" id="footer" py={10} textAlign="center">
 
       <HStack spacing={6} justify="center" mb={4}>
-        <Link href="https://www.linkedin.com/in/andrew-xiong02/" isExternal>
-          <IconButton
+        <IconButton as="a" href="https://www.linkedin.com/in/andrew-xiong02/" target="_blank" rel="noopener noreferrer"
             icon={<FaLinkedin />}
             aria-label="LinkedIn"
             variant="ghost"
@@ -17,9 +16,7 @@ const Footer = () => {
             color={iconColor}
             _hover={{ opacity: 0.8 }}
           />
-        </Link>
-        <Link href="https://github.com/andryuxiong" isExternal>
-          <IconButton
+        <IconButton as="a" href="https://github.com/andryuxiong" target="_blank" rel="noopener noreferrer"
             icon={<FaGithub />}
             aria-label="GitHub"
             variant="ghost"
@@ -27,9 +24,7 @@ const Footer = () => {
             color={iconColor}
             _hover={{ opacity: 0.8 }}
           />
-        </Link>
-        <Link href="mailto:xiongandrew02@gmail.com">
-          <IconButton
+        <IconButton as="a" href="mailto:xiongandrew02@gmail.com"
             icon={<FaEnvelope />}
             aria-label="Email"
             variant="ghost"
@@ -37,7 +32,6 @@ const Footer = () => {
             color={iconColor}
             _hover={{ opacity: 0.8 }}
           />
-        </Link>
       </HStack>
 
       <Text fontSize="sm" color="gray.500">
